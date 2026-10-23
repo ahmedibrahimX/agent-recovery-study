@@ -7,21 +7,31 @@ Exit zero means the audit completed and reproduced the documented limitation.
 import importlib.util
 import json
 from pathlib import Path
-import sys
 import tempfile
+from types import ModuleType
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "study"))
-from verify import Store, STUDIES  # noqa: E402
+
+
+def load_module(name: str, source: Path) -> ModuleType:
+    """Load a frozen source by path without changing import search paths."""
+    spec = importlib.util.spec_from_file_location(name, source)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"cannot load module from {source}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 def audit():
-    store = Store()
+    verifier = load_module("frozen_verifier", ROOT / "study/verify.py")
+    store = verifier.Store()
+    studies = verifier.STUDIES
     try:
         paths = store.call(op="manifest")["files"]
         counts = {}
         invalid = 0
-        for version, prefix in STUDIES.items():
+        for version, prefix in studies.items():
             claims = [store.json(path) for path in paths
                       if path.startswith(prefix + "/") and path.endswith("/submission.json")]
             asks = [claim for claim in claims if claim.get("status") == "ask"]
@@ -31,7 +41,7 @@ def audit():
         if invalid:
             raise RuntimeError("saved approval questions include invalid text values")
         candidate = next(path.removesuffix("/submission.json") for path in paths
-                         if path.startswith(STUDIES["v7"] + "/")
+                         if path.startswith(studies["v7"] + "/")
                          and "withdraw_after_read" in path
                          and path.endswith("/langchain_native/submission.json"))
         with tempfile.TemporaryDirectory(prefix="recovery-question-audit-") as directory:
@@ -40,14 +50,13 @@ def audit():
             store.extract(candidate, case)
             source = temporary / "checker.py"
             source.write_bytes(store.get("experiments/live-v7/checker.py"))
-            spec = importlib.util.spec_from_file_location("frozen_question_audit", source)
-            checker = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(checker)
+            checker = load_module("frozen_question_audit", source)
             original = json.loads((case / "submission.json").read_text())
             if not checker.check(case)["passed"]:
                 raise RuntimeError("unmodified saved case unexpectedly fails")
             accepted = []
-            for label, question in [("null", None), ("number", 42), ("array", []), ("object", {})]:
+            samples: tuple[tuple[str, object], ...] = (("null", None), ("number", 42), ("array", []), ("object", {}))
+            for label, question in samples:
                 (case / "submission.json").write_text(json.dumps({**original, "question": question}))
                 if not checker.check(case)["passed"]:
                     raise RuntimeError(f"documented frozen behavior changed for {label}")

@@ -8,5 +8,5 @@ Default verification uses temporary directories and cleans them. Explicit eviden
 
 Python `-E -s -B` keeps environment overrides from disabling assertions, disables user site packages, and avoids bytecode files. It does not isolate filesystem/network access or make malicious Python safe. No wall-clock timeout, OS sandbox, or process-tree cleanup is added by this packaging. The CI job timeout bounds the hosted job only.
 
-There is no security certification, production guarantee, or support SLA. Before public launch, enable private vulnerability reporting and record its working URL here. Do not post exploit details, private evidence, or credentials in public issues. Non-sensitive hardening suggestions can use the issue tracker once it exists.
+Report vulnerabilities privately using [GitHub private vulnerability reporting](https://github.com/ahmedibrahimX/agent-recovery-study/security/advisories/new). Do not post exploit details, private evidence, or credentials in public issues. Non-sensitive hardening suggestions can use the issue tracker. There is no security certification, production guarantee, or response-time SLA.
 

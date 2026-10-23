@@ -26,3 +26,7 @@ Once the GitHub repository exists, use an issue or pull request for non-sensitiv
 
 Never post credentials, workplace material, or decrypted AppWorld-derived evidence. Refer to protected logical paths without pasting contents. Follow SECURITY.md for security-sensitive findings.
 
+
+## Check supplemental Python tools
+
+Install the optional development dependency with `python3 -m pip install -r requirements-dev.txt`, then run `python3 -m mypy`. The type-check configuration covers `tools/`; the frozen study implementation is unchanged. Runtime verification does not require these development packages.

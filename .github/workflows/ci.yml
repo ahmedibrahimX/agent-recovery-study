@@ -3,11 +3,27 @@ name: Verify saved study
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
+  tooling:
+    name: Python tooling
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - name: Install development checker
+        run: python3 -m pip install -r requirements-dev.txt
+      - name: Type-check supplemental tools
+        run: python3 -m mypy
   saved-evidence:
     name: Saved evidence (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -32,6 +48,8 @@ jobs:
         run: python3 -E -s -B study/verify.py
       - name: Run original UAT negative controls
         run: python3 -E -s -B -m unittest discover -s study -p test_verifier.py -v
+      - name: Audit saved question types and characterize frozen oracle gap
+        run: python3 -E -s -B tools/audit_question_types.py
       - name: Confirm the checks left study bytes unchanged
         run: python3 tools/check_package.py
 

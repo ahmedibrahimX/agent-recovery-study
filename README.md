@@ -34,6 +34,23 @@ Expected: the verifier authenticates 5,369 logical files across 3,257 unique blo
 
 The checker validates state and parts of the structured protocol, not complete prose truthfulness. It has a [question-type validation gap](docs/KNOWN-LIMITATIONS.md); all 33 saved approval questions were checked and have valid string types. Verification rechecks saved clocks and usage; it does not remeasure hosted model speed. See [what reproduction means](docs/REPRODUCING.md) and the [validation record](docs/VALIDATION.md).
 
+## Experimental design
+
+This is a controlled engineering exploration using custom recovery histories, not an official benchmark or an independently preregistered study.
+
+| Design choice | Implementation |
+| --- | --- |
+| Question | Compare ordinary tools and code execution under the same recovery contracts. |
+| Controlled components | Same LangChain loop, model, native APIs, initial information, policy safeguards, upper budgets, and terminal-report path. |
+| Changed component | Ordinary structured tools versus Cloudflare Code Mode execution. |
+| Evaluation sequence | Exposed development qualification is separate from the reserved, source-frozen v7 evaluation; the earlier v6 matrix remains separate. |
+| Primary outcome | Same-author, separate state/history checker examining intermediate and final effects plus terminal protocol. |
+| Secondary measurements | Saved request counts, API calls, latency, token usage, and model API cost. |
+| Retention | Both full matrices, expected failures, original programs/errors, and later audits are retained; exposed reruns are not substituted into heldout scores. |
+| Limits | Two fresh worlds in familiar families, one repetition, correlated schedules, no independent preregistration or review, and incomplete prose evaluation. |
+
+Read the [experiment history](docs/EXPERIMENT_HISTORY.md), [scenario contracts](docs/SCENARIOS.md), and [oracle limitation](docs/KNOWN-LIMITATIONS.md) alongside the results.
+
 ## Results
 
 The final comparison (v7) used two previously unused worlds in familiar AppWorld task families, six authored histories, one repetition, and two arms: 24 trials. Both arms used the same LangChain `create_agent` loop, Sonnet model, native backend, approval and field-scope safeguards, notice delivery, and terminal-report path.

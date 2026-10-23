@@ -4,5 +4,7 @@ Treat participants with respect. Critique evidence, code, and decisions construc
 
 Harassment, discriminatory abuse, threats, doxxing, and disclosure of private material are unacceptable. These expectations apply to project issues, pull requests, and discussions.
 
-Ahmed Ibrahim is responsible for moderation and may remove harmful content or restrict participation. A private reporting contact must be configured and documented before inviting public participation. The contact is pending configuration. Do not repeat private details in public reports.
+Ahmed Ibrahim is responsible for project moderation and may remove harmful content or restrict participation. For a non-sensitive moderation request, mention `@ahmedibrahimX` in the affected discussion without repeating private details.
+
+For private reports of harassment, threats, doxxing, or other GitHub policy violations, use [GitHub's abuse-reporting form](https://support.github.com/contact/report-abuse). Reports through this route go to GitHub Support, not to the project maintainer. This project does not currently provide a separate confidential maintainer inbox. Follow [GitHub's reporting guidance](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam) and avoid posting private information publicly.
 
