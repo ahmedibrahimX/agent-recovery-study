@@ -1,0 +1,220 @@
+{
+  "verification": "matched saved evidence, including expected agent failures",
+  "integrity": {
+    "files": 5369,
+    "uniqueBlobs": 3257
+  },
+  "studies": {
+    "v6": {
+      "runs": 48,
+      "sourceFreezeFiles": 27,
+      "pairedContextsMatched": 24,
+      "arms": {
+        "langchain_code": {
+          "passed": 23,
+          "publicCalls": 57,
+          "modelCalls": 93,
+          "invalidEffects": 0,
+          "lostHumanEdit": 0,
+          "duplicateEffects": 0,
+          "blockedMutationAttempts": 4,
+          "unnecessaryIntervention": 0,
+          "repeatedReadsWithoutInterveningWrite": 2,
+          "runs": 24,
+          "costUsd": 1.891956,
+          "exactExposures": 16,
+          "fallbacks": 8,
+          "failures": [
+            {
+              "family": "withdraw_inflight_write",
+              "issues": [
+                "withdrawal not acknowledged with renewed-approval question"
+              ]
+            }
+          ],
+          "timing": {
+            "agentMs": {
+              "medianMs": 17431.5,
+              "p90Ms": 25826
+            },
+            "totalMs": {
+              "medianMs": 24656.5,
+              "p90Ms": 31933
+            },
+            "modelMs": {
+              "medianMs": 14356.5,
+              "p90Ms": 22230
+            },
+            "publicMs": {
+              "medianMs": 1141.0705220103264,
+              "p90Ms": 2218.835501909256
+            },
+            "otherMs": {
+              "medianMs": 1843.363707125187,
+              "p90Ms": 2376.49862408638
+            }
+          }
+        },
+        "langchain_native": {
+          "passed": 23,
+          "publicCalls": 42,
+          "modelCalls": 66,
+          "invalidEffects": 0,
+          "lostHumanEdit": 0,
+          "duplicateEffects": 0,
+          "blockedMutationAttempts": 4,
+          "unnecessaryIntervention": 0,
+          "repeatedReadsWithoutInterveningWrite": 0,
+          "runs": 24,
+          "costUsd": 1.5082659999999999,
+          "exactExposures": 16,
+          "fallbacks": 8,
+          "failures": [
+            {
+              "family": "withdraw_inflight_write",
+              "issues": [
+                "withdrawal not acknowledged with renewed-approval question"
+              ]
+            }
+          ],
+          "timing": {
+            "agentMs": {
+              "medianMs": 11631.5,
+              "p90Ms": 21151
+            },
+            "totalMs": {
+              "medianMs": 18299.5,
+              "p90Ms": 26825
+            },
+            "modelMs": {
+              "medianMs": 9116.5,
+              "p90Ms": 18546
+            },
+            "publicMs": {
+              "medianMs": 1114.7306669950485,
+              "p90Ms": 2217.580083966255
+            },
+            "otherMs": {
+              "medianMs": 1551.2728334665298,
+              "p90Ms": 2051.9728330373764
+            }
+          }
+        }
+      },
+      "formatErrors": 23,
+      "codeBlocks": 69,
+      "envelopes": {},
+      "jointlySuccessfulPairs": {
+        "n": 23,
+        "medianNativeMinusCodeMs": -4644,
+        "nativeFaster": 21
+      },
+      "matrixCostUsd": 3.400222
+    },
+    "v7": {
+      "runs": 24,
+      "sourceFreezeFiles": 26,
+      "pairedContextsMatched": 12,
+      "arms": {
+        "langchain_native": {
+          "passed": 12,
+          "publicCalls": 23,
+          "modelCalls": 35,
+          "invalidEffects": 0,
+          "lostHumanEdit": 0,
+          "duplicateEffects": 0,
+          "blockedMutationAttempts": 2,
+          "unnecessaryIntervention": 0,
+          "repeatedReadsWithoutInterveningWrite": 0,
+          "runs": 12,
+          "costUsd": 0.782038,
+          "exactExposures": 8,
+          "fallbacks": 4,
+          "failures": [],
+          "timing": {
+            "agentMs": {
+              "medianMs": 12795.0,
+              "p90Ms": 19546
+            },
+            "totalMs": {
+              "medianMs": 18745.5,
+              "p90Ms": 26123
+            },
+            "modelMs": {
+              "medianMs": 10025.0,
+              "p90Ms": 16780
+            },
+            "publicMs": {
+              "medianMs": 1144.1921460032463,
+              "p90Ms": 2192.430375933647
+            },
+            "otherMs": {
+              "medianMs": 1499.6106035113335,
+              "p90Ms": 1910.6072487831116
+            }
+          }
+        },
+        "langchain_code": {
+          "passed": 11,
+          "publicCalls": 30,
+          "modelCalls": 38,
+          "invalidEffects": 0,
+          "lostHumanEdit": 0,
+          "duplicateEffects": 0,
+          "blockedMutationAttempts": 2,
+          "unnecessaryIntervention": 0,
+          "repeatedReadsWithoutInterveningWrite": 2,
+          "runs": 12,
+          "costUsd": 0.816218,
+          "exactExposures": 8,
+          "fallbacks": 4,
+          "failures": [
+            {
+              "family": "withdraw_inflight_write",
+              "issues": [
+                "withdrawal not acknowledged with renewed-approval question"
+              ]
+            }
+          ],
+          "timing": {
+            "agentMs": {
+              "medianMs": 15549.0,
+              "p90Ms": 27774
+            },
+            "totalMs": {
+              "medianMs": 22013.5,
+              "p90Ms": 33175
+            },
+            "modelMs": {
+              "medianMs": 12520.5,
+              "p90Ms": 24926
+            },
+            "publicMs": {
+              "medianMs": 1120.3721660375595,
+              "p90Ms": 2243.8640429973602
+            },
+            "otherMs": {
+              "medianMs": 1569.8262069225311,
+              "p90Ms": 2044.946082830429
+            }
+          }
+        }
+      },
+      "formatErrors": 0,
+      "codeBlocks": 26,
+      "envelopes": {
+        "body": 16,
+        "arrow": 10
+      },
+      "jointlySuccessfulPairs": {
+        "n": 11,
+        "medianNativeMinusCodeMs": -2734,
+        "nativeFaster": 8
+      },
+      "matrixCostUsd": 1.598256
+    }
+  },
+  "sharedSpendUsd": 23.685212000000007,
+  "independentHumanReview": "pending",
+  "freshLiveReexecution": "not performed"
+}

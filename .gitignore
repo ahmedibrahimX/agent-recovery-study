@@ -1,0 +1,20 @@
+# Installed dependencies, generated output, caches, and private configuration.
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+target/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+.env
+.env.*
+!.env.example
+/reports/
+/local-extractions/
+*.log
+

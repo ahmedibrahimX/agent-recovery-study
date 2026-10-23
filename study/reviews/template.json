@@ -1,0 +1,19 @@
+{
+  "reviewer": null,
+  "affiliationAndConflicts": null,
+  "consentToAttribution": false,
+  "manifestSha256": null,
+  "os": null,
+  "pythonVersion": null,
+  "nodeVersion": null,
+  "commands": [],
+  "outputSha256": null,
+  "localChanges": [],
+  "scenarioContractConcerns": [],
+  "baselineConcerns": [],
+  "oracleConcerns": [],
+  "reproductionResult": null,
+  "architectureDecisionHelped": null,
+  "mostImportantCriticism": null,
+  "freshLiveRerun": false
+}

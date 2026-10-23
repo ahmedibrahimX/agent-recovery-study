@@ -1,0 +1,12 @@
+{
+  "format": 1,
+  "createdAt": "2026-10-22T22:19:40.774Z",
+  "encryption": "AES-256-GCM over gzip; scrypt key derivation",
+  "publicPassphrase": "agent-recovery-case-study-public-artifact-v1",
+  "salt": "appworld-derived-evidence-2026-10-23",
+  "manifestSha256": "0338babcba8de5c6dfe04907cc316d38990ee58d0328dc5e26795811e96d45c2",
+  "logicalFiles": 5369,
+  "uniqueBlobs": 3257,
+  "logicalBytes": 956142756,
+  "storedBytes": 127634342
+}
