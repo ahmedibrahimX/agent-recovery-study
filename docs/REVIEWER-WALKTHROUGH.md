@@ -6,7 +6,7 @@ For a concrete starting point, read [one complete paired case](CASE-WALKTHROUGH.
 
 ## 1. Start with the decision
 
-For short bounded tasks, the corrected experiment supports ordinary tools with explicit application safeguards. Code Mode's potential value for substantial batching remains untested; Temporal's durability value was not tested by the final comparison. Read the [decision](DECISION.md), then try to disprove its scoped reasoning.
+For the historical short bounded tasks, the corrected experiment supports ordinary tools with explicit application safeguards. The separately measured [conditional-batching configuration](../results/batching-v1/README.md) examines larger workloads and shows variable batching/repair overhead, without a consistent efficiency advantage. Its return-contract and report-schema limitations motivate an [unmeasured v2 condition](../studies/batching-v2/README.md). Keep these tasks, scoring contracts and versions separate. Temporal's durability value was not tested by the historical final comparison. Read the [historical decision](DECISION.md), then try to disprove its scoped reasoning.
 
 ## 2. Challenge one scenario contract
 
@@ -28,7 +28,7 @@ The exact sources are available locally through the evidence reader. [Source gui
 
 ## 4. Reproduce the outcomes
 
-Run the three commands in the root README. Keep v6 and v7 separate. Confirm expected failures remain failures and all five negative controls pass. A useful negative control detects a transient lost edit even when the final state is unchanged.
+Run the saved-result commands in the root README. Keep AppWorld v6/v7 and synthetic batching v1/v2 separate. Confirm expected failures remain failures and all five original negative controls pass. A useful negative control detects a transient lost edit even when the final state is unchanged. `python3 -B tools/verify_batching_v1.py` separately checks all measured synthetic run bytes, source identities, verdicts and published metrics.
 
 The original verification report is [study/verification-author.json](../study/verification-author.json). A fresh local report is an author-side reproduction, not outside certification. Do not describe the saved model calls as newly rerun.
 

@@ -1,0 +1,61 @@
+{
+  "study": "batching-v2",
+  "question": "How do structured tools and Code Mode trade correctness, model traffic, latency, and interruption handling as a conditional reconciliation workload grows?",
+  "status": "Explicit-return-contract and full-report-schema follow-up; no paid model results supplied",
+  "domain": "Public synthetic payment-intent status reconciliation; no money moves",
+  "histories": [
+    "clean",
+    "edit",
+    "withdraw"
+  ],
+  "sizes": [
+    1,
+    5,
+    20
+  ],
+  "seeds": [
+    2026102401,
+    2026102407,
+    2026102413
+  ],
+  "repetitions": 3,
+  "orderSeed": 20261023,
+  "arms": [
+    "ordinary",
+    "code"
+  ],
+  "model": "claude-sonnet-5",
+  "limits": {
+    "modelRequests": 128,
+    "publicCalls": 512,
+    "codeBlocks": 128,
+    "outputTokens": 8192,
+    "requestBytes": 1000000,
+    "trialSeconds": 600
+  },
+  "service": {
+    "concurrency": 4,
+    "latencyMs": 20
+  },
+  "accountingUsdPerMillionTokens": {
+    "input": 2,
+    "output": 10,
+    "cacheCreation": 2.5,
+    "cacheRead": 0.2
+  },
+  "accountingNote": "Recorded Sonnet 5 accounting values, not a live price lookup or invoice guarantee. Check provider billing separately.",
+  "scope": "One model, one shared LangChain create_agent loop, fixed tools/backend/safeguards, interface-specific instructions; no general framework ranking",
+  "grading": "Deterministic state, event ordering, attempted/committed actions and structured report claims; free-form explanation requires separate human review",
+  "samplingNote": "Synthetic generated cases and exposed generator, not production traffic or independently preregistered held-out benchmark; repetitions share fixtures",
+  "historyNote": "edit happens after the first list snapshot and before its result is delivered; withdraw happens immediately after a specified committed update, between writes, not during an admitted native write",
+  "preservation": "This study neither imports nor modifies the historical UAT, checker, scenarios or saved results",
+  "predecessor": {
+    "study": "batching-v1",
+    "sourceCommit": "6b30ae1ace20158494cfb620846a49240d4f86be",
+    "changes": [
+      "Explicit success-return schemas and error documentation supplied to both arms",
+      "Complete closed report-schema validation at admission and offline grading",
+      "Fresh default fixture seeds; all outputs and plans remain separate"
+    ]
+  }
+}

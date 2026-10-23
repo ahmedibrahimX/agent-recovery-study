@@ -39,6 +39,12 @@ jobs:
           node --test studies/batching-v1/test/*.test.mjs
           python3 -m ruff check studies/batching-v1/agent.py
           python3 -m ruff format --check studies/batching-v1/agent.py
+      - name: Test separate contract condition and full report-schema controls
+        run: |
+          python3 -E -s -B -m unittest discover -s tools -p test_batching_v2.py -v
+          node --test studies/batching-v2/test/*.test.mjs
+          python3 -m ruff check studies/batching-v2/agent.py
+          python3 -m ruff format --check studies/batching-v2/agent.py
   saved-evidence:
     name: Saved evidence (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -65,6 +71,8 @@ jobs:
         run: python3 -E -s -B -m unittest discover -s study -p test_verifier.py -v
       - name: Audit saved question types and characterize frozen oracle gap
         run: python3 -E -s -B tools/audit_question_types.py
+      - name: Reproduce measured synthetic runs and published metrics unchanged
+        run: python3 -E -s -B tools/verify_batching_v1.py
       - name: Confirm the checks left study bytes unchanged
         run: python3 tools/check_package.py
   live-preflight:
@@ -117,4 +125,31 @@ jobs:
           done
       - name: Confirm historical study bytes remain unchanged
         run: python3 tools/check_package.py
+  batching-v2-preflight:
+    name: Explicit-contract study preflight (unpaid)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+      - name: Build the separately versioned contract condition
+        run: python3 tools/batching_v2.py setup
+      - name: Exercise both interfaces, typed returns and full report validation
+        run: python3 tools/batching_v2.py preflight
+      - name: Recompute new unpaid evidence and preserve all measured v1 bytes
+        run: |
+          for directory in reports/batching-v2/preflight-*; do
+            if test -d "$directory"; then
+              python3 tools/batching_v2.py verify "$directory"
+            fi
+          done
+          python3 tools/verify_batching_v1.py
+          python3 tools/check_package.py
 

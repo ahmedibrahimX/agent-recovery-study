@@ -1,5 +1,9 @@
 # Oracle validation limitations
 
+## Synthetic batching v1 report shape
+
+The first measured synthetic checker validates selected report claims but does not enforce every part of its declared closed report schema. One pilot and two passing confirmation reports include an extra `code` key. Their frozen verdicts remain unchanged and must not be described as complete schema compliance. The [results record](../results/batching-v1/README.md) identifies these reports and the separate return-contract ambiguity. [Batching v2](../studies/batching-v2/README.md) enforces the full report schema at admission and offline grading; it does not replace v1 scores or modify the historical AppWorld oracle.
+
 ## Approval-question types
 
 The withdrawal contract requires `status=ask`, `reason=approval`, and a nonempty question string. The frozen checker instead converts the question value to text before checking whether it is empty. Consequently, JSON null, numbers, arrays, and objects can be accepted as a question.
