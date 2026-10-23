@@ -53,7 +53,9 @@ export async function runTrial({ definition, arm, folder, config, ledger, python
   };
   save(join(folder, 'case.json'), definition);
   try {
-    mf = new Miniflare({
+    let description;
+    if (arm === 'code') {
+      mf = new Miniflare({
       modules: true, scriptPath: resolve('.runtime/worker.mjs'), compatibilityDate: '2026-07-30', compatibilityFlags: ['nodejs_compat'],
       workerLoaders: { LOADER: {} }, serviceBindings: { BROKER: async request => {
         if (request.headers.get('authorization') !== `Bearer ${token}`) return new MFResponse('Forbidden', { status: 403 });
@@ -61,9 +63,10 @@ export async function runTrial({ definition, arm, folder, config, ledger, python
         const r = await publicCall(p.name, p.args, { executionBlock: p.block });
         return new MFResponse(JSON.stringify(r), { headers: { 'content-type': 'application/json' } });
       } },
-    });
-    await mf.ready;
-    const description = await (await mf.dispatchFetch('http://worker/describe', { method: 'POST', body: JSON.stringify({ operation: 'describe', tools }) })).json();
+      });
+      await mf.ready;
+      description = await (await mf.dispatchFetch('http://worker/describe', { method: 'POST', body: JSON.stringify({ operation: 'describe', tools }) })).json();
+    }
     const execute = async code => {
       if (report) return { error: 'Task already submitted' };
       if (blocks.length >= config.limits.codeBlocks) throw new Error('Code execution limit reached');

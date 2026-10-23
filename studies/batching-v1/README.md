@@ -20,6 +20,8 @@ python3 tools/batching.py preflight
 
 Setup creates an ignored `.batching/venv`, installs pinned Python/Node dependencies, and builds the worker. The unpaid preflight runs 18 scripted trials through the actual LangChain loop and both interfaces, covering sizes 1, 5 and 20 under all three histories. For 12 shorter qualification trials, add `--quick`.
 
+Preflight also directly tests the worker's SDK handling of function bodies, arrows and leading comments, plus its direct-network restriction. Code normalization is performed by the pinned Cloudflare SDK, not an additional format gate.
+
 Create a small paid-run plan, then supply a key and an explicit accounting cap:
 
 ```sh
@@ -72,6 +74,8 @@ The independent `checker.mjs` imports neither backend nor agent code. It derives
 The scorecard separates state integrity, mutation classification, original goal achievement, correct partial stopping, rejected requests, requests after model exposure, and structured-report accuracy. `passed` is a convenience conjunction of these requirements, not a complete quality judgment. A withdrawal trial can pass without achieving the original full goal: correct stopping is the new required outcome. Free-form prose is retained but **not automatically graded for truthfulness**. No LLM judge or independent human review is implied.
 
 Metrics include model calls, token usage, public calls, public calls per Code Mode block, tool-result bytes presented to the model, latency, and calculated token cost. Agent time starts before launching the shared Python process and ends at accepted submission; it includes framework initialization. Total elapsed also includes worker setup/cleanup. Model time is separately recorded provider round-trip time. Tool-result bytes count result content in each model request, including repeated history; actual token usage remains the cost basis. Residual time is not isolated sandbox CPU.
+
+Only the Code Mode arm starts a worker. Both agent time and full elapsed time are compared, so the worker's cold setup cost is visible rather than imposed on the ordinary-tool baseline. Sizes use nested prefixes from each fixture seed; those size comparisons, as well as repeated trials, are correlated.
 
 `comparison.json` groups by size/history, retains all attempted trials and failure dimensions, and reports paired latency/cost differences only for jointly successful pairs. These are descriptive measurements. Repetitions share fixtures. The full default has only three fixture seeds and one provider/model. Synthetic tasks, injected delays, model choices and provider noise limit generalization; there are no significance or general superiority claims.
 

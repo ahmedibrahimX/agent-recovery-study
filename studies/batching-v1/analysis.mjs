@@ -29,6 +29,7 @@ export function analyze(plan, rows) {
         totalCodeBlocks: rs.reduce((n, r) => n + r.executionBlocks, 0),
         publicCallsPerCodeBlock: arm === 'code' && rs.some(r => r.executionBlocks) ? rs.reduce((n, r) => n + r.publicCalls, 0) / rs.reduce((n, r) => n + r.executionBlocks, 0) : null,
         medianSuccessfulAgentMs: median(rs.filter(r => r.passed).map(r => r.agentMs)),
+        medianSuccessfulElapsedMs: median(rs.filter(r => r.passed).map(r => r.elapsedMs)),
         totalToolResultBytesPresentedToModel: rs.reduce((n, r) => n + r.toolResultBytesPresentedToModel, 0),
       };
     }
@@ -38,6 +39,7 @@ export function analyze(plan, rows) {
       repetitionsPerSeed: plan.repetitions, arms,
       jointlySuccessfulPairs: successful.length,
       medianPairedCodeMinusOrdinaryMs: median(successful.map(p => p.code.agentMs - p.ordinary.agentMs)),
+      medianPairedCodeMinusOrdinaryElapsedMs: median(successful.map(p => p.code.elapsedMs - p.ordinary.elapsedMs)),
       medianPairedCodeMinusOrdinaryCostUsd: median(successful.map(p => p.code.costUsd - p.ordinary.costUsd)),
       ordinaryFasterPairs: successful.filter(p => p.ordinary.agentMs < p.code.agentMs).length,
       codeFasterPairs: successful.filter(p => p.code.agentMs < p.ordinary.agentMs).length,

@@ -15,8 +15,8 @@ export default {
       return result.result;
     }]));
     const executor = new DynamicWorkerExecutor({ loader: env.LOADER, globalOutbound: null, timeout: 60000 });
-    const source = p.code.trim().replace(/;\s*$/, '');
-    const code = /^async\s*\(\s*\)\s*=>/.test(source) ? source : `async () => {\n${source}\n}`;
-    return Response.json(await executor.execute(code, [{ name: 'codemode', fns }]));
+    // Let the pinned SDK normalize supported code forms; do not add a competing
+    // format gate that could distort the execution-interface comparison.
+    return Response.json(await executor.execute(p.code, [{ name: 'codemode', fns }]));
   },
 };

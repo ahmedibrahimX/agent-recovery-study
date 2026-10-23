@@ -257,6 +257,12 @@ def run(plan_path: Path, budget: float | None, preflight: bool) -> None:
     env = dict(os.environ)
     if preflight:
         env.pop("ANTHROPIC_API_KEY", None)
+        subprocess.run(
+            ["node", "--test", "test/worker.integration.mjs"],
+            cwd=STUDY,
+            env=env,
+            check=True,
+        )
     print(f"Planned trials: {len(plan['cases']) * 2}. New output: {output}", flush=True)
     result = subprocess.run(
         [
