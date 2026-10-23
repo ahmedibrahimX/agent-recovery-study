@@ -8,6 +8,7 @@
 - [x] Keep v6 and v7 outcomes separate and retain expected failures.
 - [x] Record runtime versions and verification output hashes.
 - [x] Audit saved approval-question types and document the frozen checker limitation.
+- [x] Rebuild the live environment and exercise all native scenarios plus both agent paths without paid calls.
 
 ## Distribution
 

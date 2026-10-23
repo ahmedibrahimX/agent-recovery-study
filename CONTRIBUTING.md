@@ -16,6 +16,8 @@ No credentials, paid calls, Docker, or package installation are needed. The veri
 
 ## Preserve the experiment
 
+For live setup and new trials, use the [live-run guide](docs/LIVE-RUNS.md). Run `python3 -E -s -B -m unittest discover -s tools -p test_live.py -v` for the additional portability controls. The unpaid live preflight requires Docker and installed live dependencies, but no API key.
+
 Treat `study/` and its provenance inventory as frozen. Propose explanatory changes under `docs/`. Diagnose portability fixes separately; experimental behavior changes need a separately versioned implementation and appropriate fresh cases, not edited historical scores. Do not tune on exposed failures and present the rerun as heldout evidence.
 
 For a proposed change, describe the problem, before/after behavior, validation, and limits. Add meaningful tests for new functionality. Identify whether a result is saved-evidence verification, a new live run, or outside human review. Credit collaborators and substantial AI assistance where relevant. Contributions must be material you can license under the applicable project terms.

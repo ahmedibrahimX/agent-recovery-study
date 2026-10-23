@@ -1,0 +1,12 @@
+{
+  "name": "agent-recovery-study-live",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "@cloudflare/codemode": "0.5.5",
+    "miniflare": "4.20260730.0"
+  },
+  "devDependencies": { "esbuild": "0.25.12" }
+}

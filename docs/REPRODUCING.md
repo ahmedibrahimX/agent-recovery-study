@@ -30,9 +30,9 @@ For a limited study, use `--study v6` or `--study v7`. The separate negative-con
 
 ## Fresh live execution
 
-Fresh model/backend reexecution is a different task. Installed dependencies, original Docker images, and credentials were intentionally removed. Old live scripts contain original-machine paths and removed environments. A one-command clean live rebuild has not been validated.
+The [live-run guide](LIVE-RUNS.md) provides a clean-checkout setup, an unpaid native/agent preflight, paid execution with your own key and explicit budget, and fresh-result checks. The portable layer rebuilds the simulator from included source, uses recorded dependency pins, and records its adaptations separately from the frozen source.
 
-Read the preserved [reproducibility document](REPRODUCIBILITY.md) for source/environment pins and limitations. Any integration work should be separately versioned, preserve the frozen baselines, and reconcile the remaining paid budget before live calls. No model/API calls are needed for saved verification.
+Fresh runs use new local output directories and per-run ledgers. They do not use the historical shared budget or replace the saved outcomes. Rerunning the published cases is a replication on exposed cases, not new held-out evidence. No model/API calls are needed for saved verification or unpaid preflight.
 
 ## Independent review
 

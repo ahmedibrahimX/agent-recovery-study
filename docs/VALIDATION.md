@@ -15,8 +15,14 @@ Saved-result verification was run on macOS 15.2 arm64 with Python 3.13.3 and Nod
 | Clean Git clone, root README commands | Passed; verifier output hash unchanged |
 | Saved approval-question type audit | All 33 saved questions are nonempty strings |
 | Malformed-question diagnostic | Null, number, array, and object accepted by frozen checker; see [limitation](KNOWN-LIMITATIONS.md) |
+| Live environment rebuild | Passed from included source on macOS arm64 with Docker; no original experiment image required |
+| Unpaid live preflight | All 24 native fixture trials and four scripted-agent trials passed; all 28 fresh verdicts rechecked |
+| New portability controls | Five Python controls and three intercepted-transport budget tests passed |
+| Preflight model API spending | $0; no provider model calls, with zero outstanding reservations |
 
 Verification used the frozen experimental source, UAT controls, encrypted evidence, and saved outcomes recorded in this repository.
+
+The separate live workflow rebuild/preflight used Python 3.13.3 and Node 25.1.0 locally. The live CI job uses Python 3.12 and Node 22 on Ubuntu, rebuilds the simulator, and runs the complete unpaid preflight. Scripted responses validate plumbing, not hosted-model behavior; a fresh paid model replication was not performed as part of this change.
 
 The full verifier JSON stdout SHA-256 was:
 

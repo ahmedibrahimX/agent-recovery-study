@@ -22,12 +22,17 @@ jobs:
           python-version: '3.13'
       - name: Install development checker
         run: python3 -m pip install -r requirements-dev.txt
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
       - name: Lint supplemental tools
         run: python3 -m ruff check tools
       - name: Check supplemental tool formatting
         run: python3 -m ruff format --check tools
       - name: Type-check supplemental tools
         run: python3 -m mypy
+      - name: Test portable live tooling without model calls
+        run: python3 -E -s -B -m unittest discover -s tools -p test_live.py -v
   saved-evidence:
     name: Saved evidence (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -55,5 +60,30 @@ jobs:
       - name: Audit saved question types and characterize frozen oracle gap
         run: python3 -E -s -B tools/audit_question_types.py
       - name: Confirm the checks left study bytes unchanged
+        run: python3 tools/check_package.py
+  live-preflight:
+    name: Live runner preflight (unpaid)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+      - name: Build live environment from the checkout
+        run: python3 tools/live.py setup
+      - name: Exercise native scenarios and scripted agent plumbing without a key
+        run: python3 tools/live.py preflight
+      - name: Recheck the new local preflight evidence
+        run: |
+          for directory in reports/live/preflight-*; do
+            python3 tools/live.py verify "$directory"
+          done
+      - name: Confirm archived study and UAT remain unchanged
         run: python3 tools/check_package.py
 
