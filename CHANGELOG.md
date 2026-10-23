@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Clean-checkout live setup using included experimental source, pinned dependencies, and a rebuilt simulator image.
+- Unpaid native-scenario and scripted-agent preflight checks; new paid trials with an explicit per-run budget and the user's API key.
+- Separate local evidence and fresh-verdict checks, preserving the frozen UAT and saved outcomes.
+
 ## 0.1.0 — 2026-10-23
 
 - Offline verification of saved v6 and v7 outcomes against native state and action histories.

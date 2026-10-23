@@ -6,7 +6,7 @@ We compared **ordinary structured tools versus Cloudflare Code Mode**, checking 
 
 The practical decision for this bounded prototype was to start with ordinary tools plus explicit application safeguards. The study found no demonstrated need for a new recovery runtime. It does not establish a general framework ranking, production safety, or research novelty.
 
-**Reproducibility:** saved-result verification is available; independent human review and fresh live reexecution are pending. Nothing in this package is an official AppWorld benchmark score or an upstream endorsement.
+**Reproducibility:** verify saved results offline, or rebuild the live environment and run new trials with your own API key. Unpaid preflight checks exercise the native simulator and both agent paths; a new paid replication and independent human review remain separate milestones. Nothing in this package is an official AppWorld benchmark score or an upstream endorsement.
 
 ## What an engineer can learn here
 
@@ -20,7 +20,7 @@ Start with [one complete saved case](docs/CASE-WALKTHROUGH.md): both interfaces 
 
 ## Reproduce the saved results
 
-Requirements: Python **3.12+** with SQLite `deserialize`, Node **22+**, and about 200 MB temporary free space. No package installation, Docker, API key, or model call is required after obtaining this repository and those runtimes.
+Requirements: Python **3.12+** with SQLite `deserialize`, Node **22+**, and about 200 MB temporary free space. Saved-result verification runs entirely offline using the included evidence. It requires only Python and Node.js.
 
 From the repository root:
 
@@ -33,6 +33,19 @@ python3 -E -s -B -m unittest discover -s study -p test_verifier.py -v
 Expected: the verifier authenticates 5,369 logical files across 3,257 unique blobs and reproduces **48 v6 saved verdicts and 24 v7 saved verdicts, reported separately**. All five negative controls pass. A zero exit code means the saved evidence reproduces, **including expected agent failures**; it does not mean all agents passed.
 
 The checker validates state and parts of the structured protocol, not complete prose truthfulness. It has a [question-type validation gap](docs/KNOWN-LIMITATIONS.md); all 33 saved approval questions were checked and have valid string types. Verification rechecks saved clocks and usage; it does not remeasure hosted model speed. See [what reproduction means](docs/REPRODUCING.md) and the [validation record](docs/VALIDATION.md).
+
+## Run new trials
+
+With Python, Node/npm, and Docker running:
+
+```sh
+python3 tools/live.py setup
+python3 tools/live.py preflight
+export ANTHROPIC_API_KEY='<your Anthropic API key>'
+python3 tools/live.py run --budget-usd 5
+```
+
+Setup rebuilds the environment from included source and pinned dependencies. Preflight makes no model calls. Paid execution reruns the published v7 cases, writes new local evidence under `reports/live/`, and leaves historical results and UAT unchanged. These exposed cases are a replication attempt, not new held-out evidence. Read the [live-run guide](docs/LIVE-RUNS.md) for prerequisites, budget accounting, shorter smoke runs, and fresh-result verification.
 
 ## Experimental design
 
@@ -88,12 +101,14 @@ study/                    verifier, UAT controls, encrypted source and evidence
   evidence/               encrypted source, requests, histories, and native snapshots
 provenance/               checksums documenting frozen study code and evidence
 tools/check_package.py    checks packaged study bytes against the provenance record
+tools/live.py             setup, unpaid preflight, new paid runs, fresh-result checks
+live/                     portable orchestration and simulator build definition
 .github/                  CI and contribution templates
 ```
 
 The exact experimental agent implementations, prompts, environment definitions, scenarios, and checkers are preserved inside the evidence store. Use `python3 -E -s -B study/evidence.py` to list logical paths locally. See the [source guide](docs/SOURCE-GUIDE.md). Encryption preserves protected-data distribution boundaries; the public passphrase is packaging, not secrecy.
 
-This repository contains the study and its verification/testing code. Python and Node run the saved-result checks. Installed dependencies and generated build outputs are excluded. Fresh live execution has separate setup requirements, described in the reproduction guide.
+This repository contains the study, verification/testing code, and live-run setup. Installed dependencies and generated build outputs are excluded. Live dependencies, extracted source, and fresh outputs stay in ignored local directories; see the [live-run guide](docs/LIVE-RUNS.md).
 
 ## Review and contribution
 

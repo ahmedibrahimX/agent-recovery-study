@@ -16,5 +16,6 @@ build/
 !.env.example
 /reports/
 /local-extractions/
+/.live/
 *.log
 

@@ -29,3 +29,5 @@ Exact task identifiers and native API details stay in protected storage. Listing
 
 Retained experimental sources, environment definitions, and evidence are included in the authenticated store. Verification and inspection do not depend on a separate private checkout or external evidence download.
 
+For fresh execution, [the live-run workflow](LIVE-RUNS.md) extracts only its required source into an ignored local workspace. `tools/live.py` handles setup and source checks; `live/cli.mjs` orchestrates new trials around the extracted runner. The local `prepared.json` and each new run's `source-manifest.json` record source hashes and portability adaptations. Historical source and results remain frozen.
+
