@@ -1,0 +1,28 @@
+name: Reproduction or review finding
+description: Challenge a claim, report a saved-verification problem, or document a reproduction.
+body:
+  - type: textarea
+    id: finding
+    attributes:
+      label: Finding and affected claim
+      description: Explain the issue or reproduced result. Refer to logical evidence paths without pasting protected content.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction details
+      description: Include OS, Python/Node versions, redacted command, exit status, expected/actual behavior, and any local changes. Do not attach credentials, workplace material, or decrypted evidence.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Evidence type
+      options:
+        - Saved-evidence verification
+        - Scenario or baseline review
+        - Interpretation or documentation
+        - Fresh live execution (describe setup separately)
+    validations:
+      required: true
