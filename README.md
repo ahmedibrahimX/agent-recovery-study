@@ -1,8 +1,8 @@
-# Agent recovery: an engineering case study
+# Ordinary tools vs Code Mode: an agent recovery study
 
-**How should a tool-using agent behave when a person edits external state or withdraws approval while the agent is working?**
+**Under the same application safeguards, how do ordinary structured tools and Code Mode compare on small tasks interrupted by human edits or approval withdrawal?**
 
-We compared existing agent approaches on small, controlled recovery scenarios, checking actual external effects, response protocol, latency, and model API cost. The corrected comparison holds the LangChain agent loop and application safeguards fixed, and changes the execution interface: **ordinary structured tools versus Cloudflare Code Mode**.
+We compared **ordinary structured tools versus Cloudflare Code Mode**, checking actual external effects, response protocol, latency, and calculated model API cost. The final comparison holds the LangChain agent loop, recovery contracts, and application safeguards fixed and changes the execution interface. Recovery is the setting for this comparison; the experiment does not compare or discover alternative recovery policies.
 
 The practical decision for this bounded prototype was to start with ordinary tools plus explicit application safeguards. The study found no demonstrated need for a new recovery runtime. It does not establish a general framework ranking, production safety, or research novelty.
 
@@ -16,7 +16,7 @@ The practical decision for this bounded prototype was to start with ordinary too
 - See how an execution adapter defect distorted an initial comparison, how it was corrected, and why the original results must remain separate.
 - Reproduce the saved verdicts and inspect an actual failure before accepting the architecture decision.
 
-Start with the [five-minute reviewer walkthrough](docs/REVIEWER-WALKTHROUGH.md). The [architecture](docs/ARCHITECTURE.md), [scenario contracts](docs/SCENARIOS.md), and [claims-to-evidence map](docs/CLAIMS.md) provide the technical detail.
+Start with [one complete saved case](docs/CASE-WALKTHROUGH.md): both interfaces finish an admitted write after withdrawal, but return different terminal statuses. Then use the [reviewer guide](docs/REVIEWER-WALKTHROUGH.md), [architecture](docs/ARCHITECTURE.md), [scenario contracts](docs/SCENARIOS.md), and [claims-to-evidence map](docs/CLAIMS.md).
 
 ## Reproduce the saved results
 
@@ -40,7 +40,7 @@ This is a controlled engineering exploration using custom recovery histories, no
 
 | Design choice | Implementation |
 | --- | --- |
-| Question | Compare ordinary tools and code execution under the same recovery contracts. |
+| Question | Compare state/protocol outcomes, latency, and calculated model API cost across execution interfaces under fixed recovery contracts. |
 | Controlled components | Same LangChain loop, model, native APIs, initial information, policy safeguards, upper budgets, and terminal-report path. |
 | Changed component | Ordinary structured tools versus Cloudflare Code Mode execution. |
 | Evaluation sequence | Exposed development qualification is separate from the reserved, source-frozen v7 evaluation; the earlier v6 matrix remains separate. |
@@ -70,7 +70,9 @@ Model API costs are totals across each arm's 12 trials, calculated from saved to
 
 Ordinary tools were faster in 8/11 jointly successful pairs, with a median paired advantage of 2.734 s. This small, correlated sample does not establish statistical or general superiority. Code Mode realized little batching; larger batch workloads were not tested.
 
-The one primary Code Mode failure occurred when an already admitted write settled after withdrawal. The effect was permitted, but the agent reported completion instead of asking for renewed approval. Both arms also had prose inaccuracies in an unblinded supplementary audit. **A primary pass is not complete end-to-end correctness.**
+The one primary Code Mode failure occurred when an already admitted write settled after withdrawal. Both paired runs achieved the requested external state without forbidden effects. The contract nevertheless required a renewed-approval question: ordinary tools returned `ask`, while Code Mode returned `complete`. This is a failure under the chosen interaction contract, not evidence of an unauthorized write. A product could instead require an accurate explanation that the write settled and no further action will be taken; that would need a separately evaluated contract. See the [saved-case walkthrough](docs/CASE-WALKTHROUGH.md) for the full sequence and evidence.
+
+Both arms also had prose inaccuracies in an unblinded supplementary audit. **A primary pass is not complete end-to-end correctness.**
 
 The earlier v6 study has 48 trials and 23/24 primary outcomes per arm. Its Code Mode adapter rejected valid function bodies in 23/24 runs, forcing repairs. Those results and mistakes remain preserved; v6 and v7 are never pooled, and repair latency is not subtracted. Read the [experiment history](docs/EXPERIMENT_HISTORY.md).
 

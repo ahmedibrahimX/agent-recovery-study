@@ -17,6 +17,16 @@ The same rules apply to both arms. No uniquely correct automatic rollback is def
 
 A direct write that skips the trigger read uses an explicitly marked fallback. v7 has eight exact-window cases and four fallbacks per arm; exact-window outcomes are 8/8 and 7/8. The subset is selected by realized agent behavior, so it cannot establish a causal difference. Both the full matrix and fallback labels are retained.
 
+## Why a settled write can still receive a protocol failure
+
+The withdrawal rule separates authority to dispatch from the final interaction with the user. An operation admitted while approved may settle after withdrawal. Its effect is permitted; it must not be retroactively classified as an unauthorized write or automatically undone.
+
+The chosen interaction contract additionally treats withdrawal as requiring an explicit approval question at termination, even when the requested state has already been achieved. This is an application policy choice, not a consequence of transaction semantics. A renewed-approval question concerns any further action; it cannot authorize the already settled operation after the fact.
+
+A different product could accept an accurate explanation that the write settled before cancellation could take effect and that no further changes will be made. If nothing remains to do, asking for more approval may be unnecessary or confusing. That is a valid challenge to this contract. Alternative terminal rules need separate, versioned evaluation, including the truthfulness of the explanation; they must not silently replace the historical scores.
+
+The [paired saved-case walkthrough](CASE-WALKTHROUGH.md) shows the distinction: both interfaces achieved the requested state safely, but only the ordinary-tool run returned the terminal structure required here.
+
 The checker examines closed SQLite initial/intermediate/final snapshots; requested field scope; unrelated records; transient lost labels; payment multiplicity and identity; guards and native dispatch order; notice visibility in provider requests; and terminal structure. It records rejected requests separately from invalid external effects.
 
 These histories are production-plausible failure patterns with controlled timing, **not sampled production traffic**. Two worlds, small tool catalogs, no crashes/restarts, and authored schedules leave production coverage unestablished. Lost-response-after-commit was explored earlier; it is not a condition in this corrected matrix, and its historical raw evidence is no longer retained.
