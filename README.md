@@ -63,8 +63,10 @@ The final comparison (v7) used two previously unused worlds in familiar AppWorld
 | Invalid effects / lost edits / duplicate payments | 0 / 0 / 0 | 0 / 0 / 0 |
 | Model requests | 35 | 38 |
 | Native public API calls | 23 | 30 |
-| Model API cost | $0.782038 | $0.816218 |
+| Total model API cost (12 trials per arm) | $0.782038 | $0.816218 |
 | Median agent time | 12.795 s | 15.549 s |
+
+Model API costs are totals across each arm's 12 trials, calculated from saved token usage at the experiment's recorded prices. They exclude infrastructure costs and are not current price quotes.
 
 Ordinary tools were faster in 8/11 jointly successful pairs, with a median paired advantage of 2.734 s. This small, correlated sample does not establish statistical or general superiority. Code Mode realized little batching; larger batch workloads were not tested.
 
