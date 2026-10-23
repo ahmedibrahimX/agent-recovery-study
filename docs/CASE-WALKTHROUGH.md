@@ -36,7 +36,9 @@ The runs differ at the last response:
 | Primary verdict under this contract | Pass | Fail |
 | Model requests / native public API calls | 2 / 1 | 2 / 1 |
 
-The frozen checker classifies Code Mode's response as a false completion because a withdrawal case requires an approval question. Here, **false completion is a protocol classification; the backend update really did complete**. The ordinary-tool run meets that structured requirement. Its primary pass does not establish that every sentence of its report is accurate.
+The frozen checker classifies Code Mode's response as a false completion because a withdrawal case requires an approval question. Here, **false completion is a protocol classification; the backend update really did complete**. The ordinary-tool run meets that structured requirement.
+
+The report wording adds another distinction. The ordinary-tool summary places the completed update before approval withdrawal, but the recorded order is dispatch, withdrawal, then commit. Both runs receive the withdrawal notice after the commit; notice arrival and withdrawal are different events. Code Mode describes the commit as preceding notice arrival, which fits that ordering. The ordinary-tool run's primary pass therefore coexists with a chronology error in its prose. This observation is part of the supplementary unblinded report review, not an additional primary score.
 
 ## What to conclude—and what to challenge
 
