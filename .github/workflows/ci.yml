@@ -33,6 +33,12 @@ jobs:
         run: python3 -m mypy
       - name: Test portable live tooling without model calls
         run: python3 -E -s -B -m unittest discover -s tools -p test_live.py -v
+      - name: Test batching plans and independent outcome/budget controls
+        run: |
+          python3 -E -s -B -m unittest discover -s tools -p test_batching.py -v
+          node --test studies/batching-v1/test/*.test.mjs
+          python3 -m ruff check studies/batching-v1/agent.py
+          python3 -m ruff format --check studies/batching-v1/agent.py
   saved-evidence:
     name: Saved evidence (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -85,5 +91,30 @@ jobs:
             python3 tools/live.py verify "$directory"
           done
       - name: Confirm archived study and UAT remain unchanged
+        run: python3 tools/check_package.py
+  batching-preflight:
+    name: Batching study preflight (unpaid)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+      - name: Build the separate synthetic study
+        run: python3 tools/batching.py setup
+      - name: Exercise both real interfaces with scripted responses
+        run: python3 tools/batching.py preflight
+      - name: Recompute the unpaid results offline
+        run: |
+          for directory in reports/batching/preflight-*; do
+            if test -d "$directory"; then
+              python3 tools/batching.py verify "$directory"
+            fi
+          done
+      - name: Confirm historical study bytes remain unchanged
         run: python3 tools/check_package.py
 

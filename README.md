@@ -10,6 +10,8 @@ The practical decision for this bounded prototype was to start with ordinary too
 
 ## What an engineer can learn here
 
+A separate [batching-v1 study](studies/batching-v1/README.md) provides public synthetic reconciliation workloads at increasing sizes, with edit and withdrawal scenarios. Its clean-checkout runner accepts your own API key and reports correctness, model traffic, latency and cost separately. **No paid results are claimed for that follow-up.** Its outputs do not replace the historical results below.
+
 - Distinguish a mutation request, dispatch admission, commit, result delivery, and exposure of a notice to the model.
 - Check intermediate external effects: a final correct database can hide an earlier lost edit.
 - Separate safeguards enforced by application code from behavior chosen by an agent.

@@ -1,0 +1,16 @@
+{
+  "name": "agent-interface-batching-study",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "esbuild worker.ts --bundle --format=esm --platform=browser --external:cloudflare:workers --outfile=.runtime/worker.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@cloudflare/codemode": "0.5.5",
+    "miniflare": "4.20260730.0"
+  },
+  "devDependencies": { "esbuild": "0.25.12" }
+}

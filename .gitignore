@@ -17,5 +17,7 @@ build/
 /reports/
 /local-extractions/
 /.live/
+/.batching/
+studies/batching-v1/.runtime/
 *.log
 
