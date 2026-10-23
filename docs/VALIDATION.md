@@ -1,6 +1,6 @@
 # Validation record
 
-Saved-result verification was run on macOS 15.2 arm64 with Python 3.13.3 and Node 25.1.0 on 23 October 2026. These are author-side local checks, not independent human review. The configured Linux/macOS GitHub Actions jobs have not yet run on a hosted repository.
+Saved-result verification was run on macOS 15.2 arm64 with Python 3.13.3 and Node 25.1.0 on 23 October 2026. These are author-side local checks, not independent human review. Hosted [CI passed](https://github.com/ahmedibrahimX/agent-recovery-study/actions/runs/39997654980) on Linux and macOS using Python 3.13 and Node 22. Supplemental tools passed mypy 2.4.0, Ruff 0.17.2 linting, and Ruff formatting checks.
 
 | Check | Outcome |
 | --- | --- |

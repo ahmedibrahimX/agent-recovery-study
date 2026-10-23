@@ -3,7 +3,7 @@
 ## Verification
 
 - [x] Run the root README commands from a clean checkout.
-- [ ] Run the GitHub Actions workflow on Linux and macOS.
+- [x] Run the GitHub Actions workflow on Linux and macOS.
 - [x] Confirm that study-file hashes match before and after verification.
 - [x] Keep v6 and v7 outcomes separate and retain expected failures.
 - [x] Record runtime versions and verification output hashes.
@@ -11,13 +11,13 @@
 
 ## Distribution
 
-- [ ] Review license scope, third-party notices, and required attribution.
-- [ ] Inspect tracked files and Git history for credentials and private material.
+- [x] Include license scope, third-party notices, and upstream attribution.
+- [x] Inspect tracked files and Git history for credential patterns and private preparation notes.
 - [x] Exclude installed dependencies, build outputs, caches, and plaintext evidence extractions.
-- [ ] Enable private vulnerability reporting and document the reporting URL.
-- [ ] Document the private moderation contact.
+- [x] Enable private vulnerability reporting and document the reporting URL.
+- [x] Document the private GitHub conduct-reporting route and public maintainer contact.
 - [ ] Configure required CI checks for the default branch.
-- [ ] Tag the release and publish its changelog after checks pass.
+Publish versioned tags and release notes only after their checks pass. See [releases](https://github.com/ahmedibrahimX/agent-recovery-study/releases).
 
 ## Review status
 
