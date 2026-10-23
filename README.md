@@ -63,7 +63,7 @@ The final comparison (v7) used two previously unused worlds in familiar AppWorld
 | Invalid effects / lost edits / duplicate payments | 0 / 0 / 0 | 0 / 0 / 0 |
 | Model requests | 35 | 38 |
 | Native public API calls | 23 | 30 |
-| Total model API cost (12 trials per arm) | $0.782038 | $0.816218 |
+| Calculated model API cost (12 trials per arm) | $0.782038 | $0.816218 |
 | Median agent time | 12.795 s | 15.549 s |
 
 Model API costs are totals across each arm's 12 trials, calculated from saved token usage at the experiment's recorded prices. They exclude infrastructure costs and are not current price quotes.

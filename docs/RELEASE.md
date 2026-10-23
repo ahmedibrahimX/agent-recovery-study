@@ -16,7 +16,7 @@
 - [x] Exclude installed dependencies, build outputs, caches, and plaintext evidence extractions.
 - [x] Enable private vulnerability reporting and document the reporting URL.
 - [x] Document the private GitHub conduct-reporting route and public maintainer contact.
-- [ ] Configure required CI checks for the default branch.
+- [x] Configure required CI checks for the default branch.
 Publish versioned tags and release notes only after their checks pass. See [releases](https://github.com/ahmedibrahimX/agent-recovery-study/releases).
 
 ## Review status
