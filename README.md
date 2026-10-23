@@ -74,10 +74,13 @@ The final comparison (v7) used two previously unused worlds in familiar AppWorld
 | Clean / edit goals completed | 6/6 | 6/6 |
 | Withdrawal outcomes | 6/6 | 5/6 |
 | Invalid effects / lost edits / duplicate payments | 0 / 0 / 0 | 0 / 0 / 0 |
+| Mutation requests rejected by the shared gateway | 2 | 2 |
 | Model requests | 35 | 38 |
 | Native public API calls | 23 | 30 |
 | Calculated model API cost (12 trials per arm) | $0.782038 | $0.816218 |
 | Median agent time | 12.795 s | 15.549 s |
+
+Zero invalid effects describes the guarded system's observed outcomes; it does not mean the agents never requested a rejected action. The aggregate [rejection counts](study/verification-author.json) do not establish that either model knowingly ignored withdrawal. That requires inspecting the rejection reason and whether withdrawal had reached the model before the request. See the [shared safeguard boundary](docs/ARCHITECTURE.md).
 
 Model API costs are totals across each arm's 12 trials, calculated from saved token usage at the experiment's recorded prices. They exclude infrastructure costs and are not current price quotes.
 
