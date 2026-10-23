@@ -11,6 +11,8 @@ python3 -E -s -B study/evidence.py experiments/live-v7/langchain_agent.py
 
 The first command lists protected logical paths. The second prints the exact agent implementation locally. Do not paste decrypted task-derived code, prompts, inputs, or snapshots into public issues or screenshots.
 
+The [complete case walkthrough](CASE-WALKTHROUGH.md) provides exact logical paths and local inspection commands for a paired saved outcome, so a reviewer can start with one case rather than the entire catalog.
+
 | Review question | Logical source/evidence path |
 | --- | --- |
 | What does each agent see and how is its loop controlled? | `experiments/live-v7/langchain_agent.py` |

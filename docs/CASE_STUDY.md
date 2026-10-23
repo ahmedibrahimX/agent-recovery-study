@@ -1,6 +1,6 @@
 # What this evidence supports
 
-The narrow claim is an observed architecture comparison: existing agents can be tested against external state and action history, and basic application safeguards materially affect what the comparison measures. We did not demonstrate a new recovery algorithm or prove a production safety property.
+The evaluated question is how ordinary structured tools and Cloudflare Code Mode compare on small recovery tasks under the same application safeguards. The recovery contracts are fixed conditions, not competing policies being tested. The narrow claim is an observed execution-interface comparison against external state and action history. We did not demonstrate a new recovery algorithm or prove a production safety property.
 
 The corrected v7 study holds the agent loop, provider/model, public information, native backend, gateway policy, terminal interface and model upper budgets fixed. The execution interface changes: ordinary structured tools versus Cloudflare's typed code-execution tool. Both use Sonnet `claude-sonnet-5`, up to 12 model requests and 8192 output tokens per request, with the same request-byte limit. The interfaces necessarily have different schemas and serialization. Equal limits do not imply equal realized token counts or trajectories.
 
@@ -19,6 +19,8 @@ This is consistent with small tasks failing to amortize code generation and exec
 Agent time begins before Python/framework initialization and ends at the accepted terminal report. Full elapsed also includes simulator/sandbox setup, export/compression and cleanup, excluding the later checker. Model time is the saved provider round trip. Public API time includes relay, injected delay and state snapshots. Residual time is not isolated sandbox CPU. The small shared-host sample supports descriptive timings, not deployment SLOs or statistical superiority.
 
 Primary outcomes check state and structured protocol. A supplementary unblinded manual audit found an unsupported current-label claim in Code Mode and confused withdrawal/commit chronology in an ordinary-tool report. The external human edit was preserved. These failures remain visible; an independent comprehensive report-truth evaluation is missing.
+
+The [complete paired case](CASE-WALKTHROUGH.md) shows why external-state success and primary success differ. Both runs achieved the requested state through one permitted inflight write. Code Mode's failure came from the chosen requirement to ask after withdrawal, not from an unauthorized effect. An alternative settled-write reporting policy could be reasonable; it would need separate evaluation rather than an informal rescore.
 
 The gateway prevents specified effects in this serialized simulator. That deterministic policy, the checker's code, and empirical model behavior are different kinds of evidence. The tests do not prove cross-service atomic approval, backend-wide exactly-once effects, crash recovery, scale, hostile-input security, or general adaptation to arbitrary instruction changes.
 
