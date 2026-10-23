@@ -3,3 +3,10 @@ python_version = "3.12"
 files = ["tools"]
 check_untyped_defs = true
 warn_unused_ignores = true
+
+[tool.ruff]
+target-version = "py312"
+include = ["tools/*.py"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

@@ -22,6 +22,10 @@ jobs:
           python-version: '3.13'
       - name: Install development checker
         run: python3 -m pip install -r requirements-dev.txt
+      - name: Lint supplemental tools
+        run: python3 -m ruff check tools
+      - name: Check supplemental tool formatting
+        run: python3 -m ruff format --check tools
       - name: Type-check supplemental tools
         run: python3 -m mypy
   saved-evidence:

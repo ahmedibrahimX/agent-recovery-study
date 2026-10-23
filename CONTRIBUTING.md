@@ -29,4 +29,4 @@ Never post credentials, workplace material, or decrypted AppWorld-derived eviden
 
 ## Check supplemental Python tools
 
-Install the optional development dependency with `python3 -m pip install -r requirements-dev.txt`, then run `python3 -m mypy`. The type-check configuration covers `tools/`; the frozen study implementation is unchanged. Runtime verification does not require these development packages.
+Install the optional development dependency with `python3 -m pip install -r requirements-dev.txt`, then run `python3 -m mypy`, `python3 -m ruff check tools`, and `python3 -m ruff format --check tools`. The type, lint, and formatting checks cover only `tools/`; the frozen study implementation is unchanged. Runtime verification does not require these development packages.

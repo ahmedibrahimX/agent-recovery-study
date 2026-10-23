@@ -4,10 +4,11 @@
 This supplemental diagnostic does not change the UAT, checker, or saved scores.
 Exit zero means the audit completed and reproduced the documented limitation.
 """
+
 import importlib.util
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
 from types import ModuleType
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -32,19 +33,29 @@ def audit():
         counts = {}
         invalid = 0
         for version, prefix in studies.items():
-            claims = [store.json(path) for path in paths
-                      if path.startswith(prefix + "/") and path.endswith("/submission.json")]
+            claims = [
+                store.json(path)
+                for path in paths
+                if path.startswith(prefix + "/") and path.endswith("/submission.json")
+            ]
             asks = [claim for claim in claims if claim.get("status") == "ask"]
-            invalid += sum(not isinstance(c.get("question"), str) or not c["question"].strip()
-                           for c in asks)
+            invalid += sum(
+                not isinstance(c.get("question"), str) or not c["question"].strip()
+                for c in asks
+            )
             counts[version] = len(asks)
         if invalid:
             raise RuntimeError("saved approval questions include invalid text values")
-        candidate = next(path.removesuffix("/submission.json") for path in paths
-                         if path.startswith(studies["v7"] + "/")
-                         and "withdraw_after_read" in path
-                         and path.endswith("/langchain_native/submission.json"))
-        with tempfile.TemporaryDirectory(prefix="recovery-question-audit-") as directory:
+        candidate = next(
+            path.removesuffix("/submission.json")
+            for path in paths
+            if path.startswith(studies["v7"] + "/")
+            and "withdraw_after_read" in path
+            and path.endswith("/langchain_native/submission.json")
+        )
+        with tempfile.TemporaryDirectory(
+            prefix="recovery-question-audit-"
+        ) as directory:
             temporary = Path(directory)
             case = temporary / "case"
             store.extract(candidate, case)
@@ -55,17 +66,28 @@ def audit():
             if not checker.check(case)["passed"]:
                 raise RuntimeError("unmodified saved case unexpectedly fails")
             accepted = []
-            samples: tuple[tuple[str, object], ...] = (("null", None), ("number", 42), ("array", []), ("object", {}))
+            samples: tuple[tuple[str, object], ...] = (
+                ("null", None),
+                ("number", 42),
+                ("array", []),
+                ("object", {}),
+            )
             for label, question in samples:
-                (case / "submission.json").write_text(json.dumps({**original, "question": question}))
+                (case / "submission.json").write_text(
+                    json.dumps({**original, "question": question})
+                )
                 if not checker.check(case)["passed"]:
-                    raise RuntimeError(f"documented frozen behavior changed for {label}")
+                    raise RuntimeError(
+                        f"documented frozen behavior changed for {label}"
+                    )
                 accepted.append(label)
-        return {"audit": "frozen oracle question-type limitation",
-                "savedAskQuestionsChecked": counts,
-                "savedInvalidQuestionTypes": invalid,
-                "malformedTypesAcceptedByFrozenOracle": accepted,
-                "savedScoresChanged": False}
+        return {
+            "audit": "frozen oracle question-type limitation",
+            "savedAskQuestionsChecked": counts,
+            "savedInvalidQuestionTypes": invalid,
+            "malformedTypesAcceptedByFrozenOracle": accepted,
+            "savedScoresChanged": False,
+        }
     finally:
         store.close()
 
