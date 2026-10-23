@@ -2,17 +2,18 @@
 
 ## Verification
 
-- [ ] Run the root README commands from a clean checkout.
+- [x] Run the root README commands from a clean checkout.
 - [ ] Run the GitHub Actions workflow on Linux and macOS.
-- [ ] Confirm that study-file hashes match before and after verification.
-- [ ] Keep v6 and v7 outcomes separate and retain expected failures.
-- [ ] Record runtime versions and verification output hashes.
+- [x] Confirm that study-file hashes match before and after verification.
+- [x] Keep v6 and v7 outcomes separate and retain expected failures.
+- [x] Record runtime versions and verification output hashes.
+- [x] Audit saved approval-question types and document the frozen checker limitation.
 
 ## Distribution
 
 - [ ] Review license scope, third-party notices, and required attribution.
 - [ ] Inspect tracked files and Git history for credentials and private material.
-- [ ] Exclude installed dependencies, build outputs, caches, and plaintext evidence extractions.
+- [x] Exclude installed dependencies, build outputs, caches, and plaintext evidence extractions.
 - [ ] Enable private vulnerability reporting and document the reporting URL.
 - [ ] Document the private moderation contact.
 - [ ] Configure required CI checks for the default branch.

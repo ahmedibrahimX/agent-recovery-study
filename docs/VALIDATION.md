@@ -12,6 +12,9 @@ Saved-result verification was run on macOS 15.2 arm64 with Python 3.13.3 and Nod
 | Evidence authentication | 5,369 logical files / 3,257 unique blobs |
 | Markdown links | All local targets resolve |
 | Installed dependencies/build outputs/caches | Excluded |
+| Clean Git clone, root README commands | Passed; verifier output hash unchanged |
+| Saved approval-question type audit | All 33 saved questions are nonempty strings |
+| Malformed-question diagnostic | Null, number, array, and object accepted by frozen checker; see [limitation](KNOWN-LIMITATIONS.md) |
 
 Verification used the frozen experimental source, UAT controls, encrypted evidence, and saved outcomes recorded in this repository.
 

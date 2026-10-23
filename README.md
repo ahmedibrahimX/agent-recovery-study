@@ -32,7 +32,7 @@ python3 -E -s -B -m unittest discover -s study -p test_verifier.py -v
 
 Expected: the verifier authenticates 5,369 logical files across 3,257 unique blobs and reproduces **48 v6 saved verdicts and 24 v7 saved verdicts, reported separately**. All five negative controls pass. A zero exit code means the saved evidence reproduces, **including expected agent failures**; it does not mean all agents passed.
 
-The checker validates state and structured protocol, not complete prose truthfulness. Verification rechecks saved clocks and usage; it does not remeasure hosted model speed. See [what reproduction means](docs/REPRODUCING.md) and the [validation record](docs/VALIDATION.md).
+The checker validates state and parts of the structured protocol, not complete prose truthfulness. It has a [question-type validation gap](docs/KNOWN-LIMITATIONS.md); all 33 saved approval questions were checked and have valid string types. Verification rechecks saved clocks and usage; it does not remeasure hosted model speed. See [what reproduction means](docs/REPRODUCING.md) and the [validation record](docs/VALIDATION.md).
 
 ## Results
 
