@@ -1,5 +1,20 @@
 # Claims to evidence
 
+## Conditional batching
+
+The public synthetic run archives are separate from the encrypted historical AppWorld store. Run `python3 -B tools/verify_batching_v2.py` or `python3 -B tools/verify_batching_v1.py` from the repository root.
+
+| Claim | Evidence | Boundary |
+| --- | --- | --- |
+| V2 passes 27/27 in each arm, including full report schema | [V2 preserved runs and metrics](../results/batching-v2/README.md), `case.json`, `evidence.json`, `report.json`, `verdict.json`, frozen checker | Same-author checker and shared schema validator; correct withdrawal can leave work incomplete; prose truth is not comprehensively graded. |
+| V2 Code is faster in all nine size-20 pairs and uses fewer model requests at lower calculated cost | V2 `metrics.json`, archived provider requests/responses/usage, clocks, CSV and comparisons | Three correlated seeds, one trial per case/arm, one provider/model and synthetic latency. Smaller sizes usually favor ordinary tools. No universal crossover. |
+| Substantive batching occurs | Case `batching-v2-cc729b0c4f83`: Code blocks chain 40 dependent reads, then perform 20 updates; ordinary requests batch reads but split writes | Observed model strategy, not an intrinsic minimum turn count for structured tools. Code's overall public-call count is higher. |
+| Guard protection and agent stopping are distinct | Both versions' journals, guard events and actual provider input exposure | V2 has 23/33 denied mutations and zero mutation requests after model exposure. Request arrival can precede withdrawal while admission follows it. |
+| V2 includes reporting repair | Case `batching-v2-24b2e54eaf6a`: two rejected terminals and later accepted report, six model requests | One malformed model submission plus one adapter fallback resubmission, not two independent model mistakes. Full time/cost retained. |
+| V1 limitations and original outcomes remain visible | [V1 result record](../results/batching-v1/README.md), file manifests, unchanged source, separate pilot/confirmation | No rescoring, selected replacements, repair subtraction or pooling. Multiple condition changes prevent an output-schema-only causal claim. |
+
+## Historical AppWorld
+
 Paths below refer to the encrypted archive's logical file listing. Use `evidence.py` locally.
 
 | Claim | Evidence | Boundary |

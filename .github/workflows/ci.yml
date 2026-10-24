@@ -72,7 +72,9 @@ jobs:
       - name: Audit saved question types and characterize frozen oracle gap
         run: python3 -E -s -B tools/audit_question_types.py
       - name: Reproduce measured synthetic runs and published metrics unchanged
-        run: python3 -E -s -B tools/verify_batching_v1.py
+        run: |
+          python3 -E -s -B tools/verify_batching_v1.py
+          python3 -E -s -B tools/verify_batching_v2.py
       - name: Confirm the checks left study bytes unchanged
         run: python3 tools/check_package.py
   live-preflight:
