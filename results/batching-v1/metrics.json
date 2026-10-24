@@ -1,0 +1,1405 @@
+{
+  "confirmation": {
+    "bySize": {
+      "1": {
+        "arms": {
+          "code": {
+            "attempted": 9,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.343592,
+            "executionBlocks": 37,
+            "maximumSuccessfulAgentSeconds": 15.373234,
+            "medianSuccessfulAgentSeconds": 13.274519,
+            "modelCallsCompleted": 46,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 9,
+            "publicCalls": 37,
+            "stateIntegrityPasses": 9,
+            "toolResultBytesPresentedToModel": 28350
+          },
+          "ordinary": {
+            "attempted": 9,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.279666,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 11.837292,
+            "medianSuccessfulAgentSeconds": 10.707117,
+            "modelCallsCompleted": 45,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 9,
+            "publicCalls": 36,
+            "stateIntegrityPasses": 9,
+            "toolResultBytesPresentedToModel": 23835
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 9,
+        "medianPairedCodeMinusOrdinarySeconds": 2.72133
+      },
+      "20": {
+        "arms": {
+          "code": {
+            "attempted": 9,
+            "blockedMutationAttempts": 112,
+            "calculatedCostUsd": 3.704802,
+            "executionBlocks": 125,
+            "maximumSuccessfulAgentSeconds": 208.10581,
+            "medianSuccessfulAgentSeconds": 55.474947,
+            "modelCallsCompleted": 134,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 9,
+            "publicCalls": 850,
+            "stateIntegrityPasses": 9,
+            "toolResultBytesPresentedToModel": 1555237
+          },
+          "ordinary": {
+            "attempted": 9,
+            "blockedMutationAttempts": 6,
+            "calculatedCostUsd": 2.303678,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 62.477293,
+            "medianSuccessfulAgentSeconds": 53.867934,
+            "modelCallsCompleted": 82,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 8,
+            "publicCalls": 513,
+            "stateIntegrityPasses": 9,
+            "toolResultBytesPresentedToModel": 1023469
+          }
+        },
+        "codeFasterPairs": 4,
+        "jointlySuccessfulPairs": 8,
+        "medianPairedCodeMinusOrdinarySeconds": -1.846902
+      },
+      "5": {
+        "arms": {
+          "code": {
+            "attempted": 9,
+            "blockedMutationAttempts": 7,
+            "calculatedCostUsd": 0.562138,
+            "executionBlocks": 38,
+            "maximumSuccessfulAgentSeconds": 28.188565,
+            "medianSuccessfulAgentSeconds": 23.057968,
+            "modelCallsCompleted": 47,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 9,
+            "publicCalls": 152,
+            "stateIntegrityPasses": 9,
+            "toolResultBytesPresentedToModel": 136507
+          },
+          "ordinary": {
+            "attempted": 9,
+            "blockedMutationAttempts": 7,
+            "calculatedCostUsd": 0.552258,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 28.115827,
+            "medianSuccessfulAgentSeconds": 20.43823,
+            "modelCallsCompleted": 45,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 9,
+            "publicCalls": 142,
+            "stateIntegrityPasses": 9,
+            "toolResultBytesPresentedToModel": 120287
+          }
+        },
+        "codeFasterPairs": 6,
+        "jointlySuccessfulPairs": 9,
+        "medianPairedCodeMinusOrdinarySeconds": -0.768382
+      }
+    },
+    "bySizeAndHistory": {
+      "1/clean": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.109726,
+            "executionBlocks": 12,
+            "maximumSuccessfulAgentSeconds": 13.381728,
+            "medianSuccessfulAgentSeconds": 12.763231,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 12,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 8781
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.09313,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 11.727027,
+            "medianSuccessfulAgentSeconds": 11.468915,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 12,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 7941
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": 1.912813
+      },
+      "1/edit": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.12102,
+            "executionBlocks": 13,
+            "maximumSuccessfulAgentSeconds": 15.373234,
+            "medianSuccessfulAgentSeconds": 13.985507,
+            "modelCallsCompleted": 16,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 12,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 9996
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.09283,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 11.837292,
+            "medianSuccessfulAgentSeconds": 10.294061,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 12,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 7953
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": 2.905917
+      },
+      "1/withdraw": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.112846,
+            "executionBlocks": 12,
+            "maximumSuccessfulAgentSeconds": 14.061289,
+            "medianSuccessfulAgentSeconds": 13.274519,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 13,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 9573
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.093706,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 11.214141,
+            "medianSuccessfulAgentSeconds": 10.707117,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 12,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 7941
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": 2.847147
+      },
+      "20/clean": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 1.334868,
+            "executionBlocks": 46,
+            "maximumSuccessfulAgentSeconds": 135.009823,
+            "medianSuccessfulAgentSeconds": 64.954106,
+            "modelCallsCompleted": 49,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 254,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 690577
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 1.067532,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 62.477293,
+            "medianSuccessfulAgentSeconds": 60.443984,
+            "modelCallsCompleted": 41,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 183,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 515745
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": 4.510123
+      },
+      "20/edit": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 1.58802,
+            "executionBlocks": 53,
+            "maximumSuccessfulAgentSeconds": 208.10581,
+            "medianSuccessfulAgentSeconds": 55.474947,
+            "modelCallsCompleted": 56,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 286,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 548272
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.612144,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 53.803486,
+            "medianSuccessfulAgentSeconds": 52.329652,
+            "modelCallsCompleted": 20,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 2,
+            "publicCalls": 171,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 250026
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 2,
+        "medianPairedCodeMinusOrdinarySeconds": -1.846902
+      },
+      "20/withdraw": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 112,
+            "calculatedCostUsd": 0.781914,
+            "executionBlocks": 26,
+            "maximumSuccessfulAgentSeconds": 130.857833,
+            "medianSuccessfulAgentSeconds": 40.828298,
+            "modelCallsCompleted": 29,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 310,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 316388
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 6,
+            "calculatedCostUsd": 0.624002,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 54.285779,
+            "medianSuccessfulAgentSeconds": 50.816438,
+            "modelCallsCompleted": 21,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 159,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 257698
+          }
+        },
+        "codeFasterPairs": 2,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": -13.457481
+      },
+      "5/clean": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.176158,
+            "executionBlocks": 12,
+            "maximumSuccessfulAgentSeconds": 23.057968,
+            "medianSuccessfulAgentSeconds": 19.182524,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 48,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 41786
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.17813,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 21.854532,
+            "medianSuccessfulAgentSeconds": 19.950907,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 48,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 40710
+          }
+        },
+        "codeFasterPairs": 2,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": -0.232904
+      },
+      "5/edit": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.171868,
+            "executionBlocks": 12,
+            "maximumSuccessfulAgentSeconds": 23.181101,
+            "medianSuccessfulAgentSeconds": 18.903387,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 48,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 44185
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.1793,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 21.819381,
+            "medianSuccessfulAgentSeconds": 20.0222,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 48,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 40722
+          }
+        },
+        "codeFasterPairs": 2,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": -1.118813
+      },
+      "5/withdraw": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 7,
+            "calculatedCostUsd": 0.214112,
+            "executionBlocks": 14,
+            "maximumSuccessfulAgentSeconds": 28.188565,
+            "medianSuccessfulAgentSeconds": 26.700942,
+            "modelCallsCompleted": 17,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 56,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 50536
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 7,
+            "calculatedCostUsd": 0.194828,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 28.115827,
+            "medianSuccessfulAgentSeconds": 25.804897,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 46,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 38855
+          }
+        },
+        "codeFasterPairs": 2,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": -1.346946
+      }
+    },
+    "kind": "paid-model-comparison",
+    "overall": {
+      "arms": {
+        "code": {
+          "attempted": 27,
+          "blockedMutationAttempts": 119,
+          "calculatedCostUsd": 4.610532,
+          "executionBlocks": 200,
+          "maximumSuccessfulAgentSeconds": 208.10581,
+          "medianSuccessfulAgentSeconds": 23.057968,
+          "modelCallsCompleted": 227,
+          "mutationRequestsAfterModelExposure": 0,
+          "passed": 27,
+          "publicCalls": 1039,
+          "stateIntegrityPasses": 27,
+          "toolResultBytesPresentedToModel": 1720094
+        },
+        "ordinary": {
+          "attempted": 27,
+          "blockedMutationAttempts": 13,
+          "calculatedCostUsd": 3.135602,
+          "executionBlocks": 0,
+          "maximumSuccessfulAgentSeconds": 62.477293,
+          "medianSuccessfulAgentSeconds": 20.230215,
+          "modelCallsCompleted": 172,
+          "mutationRequestsAfterModelExposure": 0,
+          "passed": 26,
+          "publicCalls": 691,
+          "stateIntegrityPasses": 27,
+          "toolResultBytesPresentedToModel": 1167591
+        }
+      },
+      "codeFasterPairs": 10,
+      "jointlySuccessfulPairs": 26,
+      "medianPairedCodeMinusOrdinarySeconds": 1.516591
+    },
+    "planSha256": "2b645f3a532ee049d59ab1a31f4fc0a7d7b65d067185a0ecbeddf386215226c7",
+    "repetitions": 1,
+    "seeds": [
+      93473,
+      54781,
+      71839
+    ]
+  },
+  "pilot": {
+    "bySize": {
+      "1": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.10875,
+            "executionBlocks": 12,
+            "maximumSuccessfulAgentSeconds": 11.666673,
+            "medianSuccessfulAgentSeconds": 11.626306,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 13,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 10491
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.09141,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 10.003886,
+            "medianSuccessfulAgentSeconds": 9.055156,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 12,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 8356
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": 1.824635
+      },
+      "20": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 10,
+            "calculatedCostUsd": 0.519772,
+            "executionBlocks": 16,
+            "maximumSuccessfulAgentSeconds": 48.156592,
+            "medianSuccessfulAgentSeconds": 39.863212,
+            "modelCallsCompleted": 19,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 183,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 271658
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 2,
+            "calculatedCostUsd": 0.881346,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 63.742243,
+            "medianSuccessfulAgentSeconds": 60.424783,
+            "modelCallsCompleted": 29,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 175,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 398699
+          }
+        },
+        "codeFasterPairs": 3,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": -20.561572
+      },
+      "5": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 3,
+            "calculatedCostUsd": 0.185,
+            "executionBlocks": 12,
+            "maximumSuccessfulAgentSeconds": 24.482208,
+            "medianSuccessfulAgentSeconds": 23.760733,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 48,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 40034
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 3,
+            "calculatedCostUsd": 0.17914,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 22.449514,
+            "medianSuccessfulAgentSeconds": 21.317542,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 48,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 38865
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": 1.311219
+      }
+    },
+    "bySizeAndHistory": {
+      "1/clean": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.036222,
+            "executionBlocks": 4,
+            "maximumSuccessfulAgentSeconds": 10.879791,
+            "medianSuccessfulAgentSeconds": 10.879791,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 3543
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.030084,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 9.055156,
+            "medianSuccessfulAgentSeconds": 9.055156,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 2784
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": 1.824635
+      },
+      "1/edit": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.036708,
+            "executionBlocks": 4,
+            "maximumSuccessfulAgentSeconds": 11.626306,
+            "medianSuccessfulAgentSeconds": 11.626306,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 5,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 3884
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.030004,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 9.039405,
+            "medianSuccessfulAgentSeconds": 9.039405,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 2788
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": 2.5869
+      },
+      "1/withdraw": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.03582,
+            "executionBlocks": 4,
+            "maximumSuccessfulAgentSeconds": 11.666673,
+            "medianSuccessfulAgentSeconds": 11.666673,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 3064
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.031322,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 10.003886,
+            "medianSuccessfulAgentSeconds": 10.003886,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 2784
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": 1.662787
+      },
+      "20/clean": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.258384,
+            "executionBlocks": 8,
+            "maximumSuccessfulAgentSeconds": 48.156592,
+            "medianSuccessfulAgentSeconds": 48.156592,
+            "modelCallsCompleted": 9,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 142432
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.28891,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 56.501991,
+            "medianSuccessfulAgentSeconds": 56.501991,
+            "modelCallsCompleted": 9,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 132309
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": -8.3454
+      },
+      "20/edit": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.126062,
+            "executionBlocks": 4,
+            "maximumSuccessfulAgentSeconds": 34.663328,
+            "medianSuccessfulAgentSeconds": 34.663328,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 64390
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.304156,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 63.742243,
+            "medianSuccessfulAgentSeconds": 63.742243,
+            "modelCallsCompleted": 9,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 132329
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": -29.078916
+      },
+      "20/withdraw": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 10,
+            "calculatedCostUsd": 0.135326,
+            "executionBlocks": 4,
+            "maximumSuccessfulAgentSeconds": 39.863212,
+            "medianSuccessfulAgentSeconds": 39.863212,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 64836
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 2,
+            "calculatedCostUsd": 0.28828,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 60.424783,
+            "medianSuccessfulAgentSeconds": 60.424783,
+            "modelCallsCompleted": 11,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 53,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 134061
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": -20.561572
+      },
+      "5/clean": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.063688,
+            "executionBlocks": 4,
+            "maximumSuccessfulAgentSeconds": 24.482208,
+            "medianSuccessfulAgentSeconds": 24.482208,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 13646
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.059484,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 21.317542,
+            "medianSuccessfulAgentSeconds": 21.317542,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 13154
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": 3.164666
+      },
+      "5/edit": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.059468,
+            "executionBlocks": 4,
+            "maximumSuccessfulAgentSeconds": 20.994629,
+            "medianSuccessfulAgentSeconds": 20.994629,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 13450
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0.059048,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 20.410113,
+            "medianSuccessfulAgentSeconds": 20.410113,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 13158
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": 0.584516
+      },
+      "5/withdraw": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 3,
+            "calculatedCostUsd": 0.061844,
+            "executionBlocks": 4,
+            "maximumSuccessfulAgentSeconds": 23.760733,
+            "medianSuccessfulAgentSeconds": 23.760733,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 12938
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 3,
+            "calculatedCostUsd": 0.060608,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 22.449514,
+            "medianSuccessfulAgentSeconds": 22.449514,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 12553
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": 1.311219
+      }
+    },
+    "kind": "paid-model-comparison",
+    "overall": {
+      "arms": {
+        "code": {
+          "attempted": 9,
+          "blockedMutationAttempts": 13,
+          "calculatedCostUsd": 0.813522,
+          "executionBlocks": 40,
+          "maximumSuccessfulAgentSeconds": 48.156592,
+          "medianSuccessfulAgentSeconds": 23.760733,
+          "modelCallsCompleted": 49,
+          "mutationRequestsAfterModelExposure": 0,
+          "passed": 9,
+          "publicCalls": 244,
+          "stateIntegrityPasses": 9,
+          "toolResultBytesPresentedToModel": 322183
+        },
+        "ordinary": {
+          "attempted": 9,
+          "blockedMutationAttempts": 5,
+          "calculatedCostUsd": 1.151896,
+          "executionBlocks": 0,
+          "maximumSuccessfulAgentSeconds": 63.742243,
+          "medianSuccessfulAgentSeconds": 21.317542,
+          "modelCallsCompleted": 59,
+          "mutationRequestsAfterModelExposure": 0,
+          "passed": 9,
+          "publicCalls": 235,
+          "stateIntegrityPasses": 9,
+          "toolResultBytesPresentedToModel": 445920
+        }
+      },
+      "codeFasterPairs": 3,
+      "jointlySuccessfulPairs": 9,
+      "medianPairedCodeMinusOrdinarySeconds": 1.311219
+    },
+    "planSha256": "de1e1800c8b1d305870d6eb9bec0eefbf0e3643467dfc362e3d593732e07813d",
+    "repetitions": 1,
+    "seeds": [
+      20261023
+    ]
+  },
+  "preflight": {
+    "bySize": {
+      "1": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 3,
+            "maximumSuccessfulAgentSeconds": 0.788053,
+            "medianSuccessfulAgentSeconds": 0.72187,
+            "modelCallsCompleted": 6,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 12,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 261
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 0.7606,
+            "medianSuccessfulAgentSeconds": 0.708002,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 12,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 8263
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": 0.015146
+      },
+      "20": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 10,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 3,
+            "maximumSuccessfulAgentSeconds": 0.969998,
+            "medianSuccessfulAgentSeconds": 0.961791,
+            "modelCallsCompleted": 6,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 183,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 3714
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 10,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 1.010799,
+            "medianSuccessfulAgentSeconds": 0.992844,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 183,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 157507
+          }
+        },
+        "codeFasterPairs": 3,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": -0.022846
+      },
+      "5": {
+        "arms": {
+          "code": {
+            "attempted": 3,
+            "blockedMutationAttempts": 3,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 3,
+            "maximumSuccessfulAgentSeconds": 0.742973,
+            "medianSuccessfulAgentSeconds": 0.72516,
+            "modelCallsCompleted": 6,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 48,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 999
+          },
+          "ordinary": {
+            "attempted": 3,
+            "blockedMutationAttempts": 3,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 3.537829,
+            "medianSuccessfulAgentSeconds": 0.801823,
+            "modelCallsCompleted": 15,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 3,
+            "publicCalls": 48,
+            "stateIntegrityPasses": 3,
+            "toolResultBytesPresentedToModel": 41723
+          }
+        },
+        "codeFasterPairs": 3,
+        "jointlySuccessfulPairs": 3,
+        "medianPairedCodeMinusOrdinarySeconds": -0.05885
+      }
+    },
+    "bySizeAndHistory": {
+      "1/clean": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 1,
+            "maximumSuccessfulAgentSeconds": 0.788053,
+            "medianSuccessfulAgentSeconds": 0.788053,
+            "modelCallsCompleted": 2,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 87
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 0.708002,
+            "medianSuccessfulAgentSeconds": 0.708002,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 2753
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": 0.080051
+      },
+      "1/edit": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 1,
+            "maximumSuccessfulAgentSeconds": 0.72187,
+            "medianSuccessfulAgentSeconds": 0.72187,
+            "modelCallsCompleted": 2,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 87
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 0.706723,
+            "medianSuccessfulAgentSeconds": 0.706723,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 2757
+          }
+        },
+        "codeFasterPairs": 0,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": 0.015146
+      },
+      "1/withdraw": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 1,
+            "maximumSuccessfulAgentSeconds": 0.706488,
+            "medianSuccessfulAgentSeconds": 0.706488,
+            "modelCallsCompleted": 2,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 87
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 0.7606,
+            "medianSuccessfulAgentSeconds": 0.7606,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 4,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 2753
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": -0.054111
+      },
+      "20/clean": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 1,
+            "maximumSuccessfulAgentSeconds": 0.961791,
+            "medianSuccessfulAgentSeconds": 0.961791,
+            "modelCallsCompleted": 2,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 1178
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 0.962941,
+            "medianSuccessfulAgentSeconds": 0.962941,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 53153
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": -0.00115
+      },
+      "20/edit": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 1,
+            "maximumSuccessfulAgentSeconds": 0.952197,
+            "medianSuccessfulAgentSeconds": 0.952197,
+            "modelCallsCompleted": 2,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 1178
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 1.010799,
+            "medianSuccessfulAgentSeconds": 1.010799,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 53157
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": -0.058602
+      },
+      "20/withdraw": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 10,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 1,
+            "maximumSuccessfulAgentSeconds": 0.969998,
+            "medianSuccessfulAgentSeconds": 0.969998,
+            "modelCallsCompleted": 2,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 1358
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 10,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 0.992844,
+            "medianSuccessfulAgentSeconds": 0.992844,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 61,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 51197
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": -0.022846
+      },
+      "5/clean": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 1,
+            "maximumSuccessfulAgentSeconds": 0.72516,
+            "medianSuccessfulAgentSeconds": 0.72516,
+            "modelCallsCompleted": 2,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 315
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 3.537829,
+            "medianSuccessfulAgentSeconds": 3.537829,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 14101
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": -2.812669
+      },
+      "5/edit": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 1,
+            "maximumSuccessfulAgentSeconds": 0.724629,
+            "medianSuccessfulAgentSeconds": 0.724629,
+            "modelCallsCompleted": 2,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 315
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 0,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 0.740294,
+            "medianSuccessfulAgentSeconds": 0.740294,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 14105
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": -0.015665
+      },
+      "5/withdraw": {
+        "arms": {
+          "code": {
+            "attempted": 1,
+            "blockedMutationAttempts": 3,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 1,
+            "maximumSuccessfulAgentSeconds": 0.742973,
+            "medianSuccessfulAgentSeconds": 0.742973,
+            "modelCallsCompleted": 2,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 369
+          },
+          "ordinary": {
+            "attempted": 1,
+            "blockedMutationAttempts": 3,
+            "calculatedCostUsd": 0,
+            "executionBlocks": 0,
+            "maximumSuccessfulAgentSeconds": 0.801823,
+            "medianSuccessfulAgentSeconds": 0.801823,
+            "modelCallsCompleted": 5,
+            "mutationRequestsAfterModelExposure": 0,
+            "passed": 1,
+            "publicCalls": 16,
+            "stateIntegrityPasses": 1,
+            "toolResultBytesPresentedToModel": 13517
+          }
+        },
+        "codeFasterPairs": 1,
+        "jointlySuccessfulPairs": 1,
+        "medianPairedCodeMinusOrdinarySeconds": -0.05885
+      }
+    },
+    "kind": "unpaid-preflight",
+    "overall": {
+      "arms": {
+        "code": {
+          "attempted": 9,
+          "blockedMutationAttempts": 13,
+          "calculatedCostUsd": 0,
+          "executionBlocks": 9,
+          "maximumSuccessfulAgentSeconds": 0.969998,
+          "medianSuccessfulAgentSeconds": 0.742973,
+          "modelCallsCompleted": 18,
+          "mutationRequestsAfterModelExposure": 0,
+          "passed": 9,
+          "publicCalls": 243,
+          "stateIntegrityPasses": 9,
+          "toolResultBytesPresentedToModel": 4974
+        },
+        "ordinary": {
+          "attempted": 9,
+          "blockedMutationAttempts": 13,
+          "calculatedCostUsd": 0,
+          "executionBlocks": 0,
+          "maximumSuccessfulAgentSeconds": 3.537829,
+          "medianSuccessfulAgentSeconds": 0.801823,
+          "modelCallsCompleted": 45,
+          "mutationRequestsAfterModelExposure": 0,
+          "passed": 9,
+          "publicCalls": 243,
+          "stateIntegrityPasses": 9,
+          "toolResultBytesPresentedToModel": 207493
+        }
+      },
+      "codeFasterPairs": 7,
+      "jointlySuccessfulPairs": 9,
+      "medianPairedCodeMinusOrdinarySeconds": -0.022846
+    },
+    "planSha256": "fd54653f4f9cc6231c0e5449741ebbbef40a315d0b89cd81121bff531ebb981b",
+    "repetitions": 1,
+    "seeds": [
+      17
+    ]
+  }
+}

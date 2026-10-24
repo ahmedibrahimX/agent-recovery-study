@@ -17,12 +17,12 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'
       - name: Install development checker
         run: python3 -m pip install -r requirements-dev.txt
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
       - name: Lint supplemental tools
@@ -33,6 +33,18 @@ jobs:
         run: python3 -m mypy
       - name: Test portable live tooling without model calls
         run: python3 -E -s -B -m unittest discover -s tools -p test_live.py -v
+      - name: Test batching plans and independent outcome/budget controls
+        run: |
+          python3 -E -s -B -m unittest discover -s tools -p test_batching.py -v
+          node --test studies/batching-v1/test/*.test.mjs
+          python3 -m ruff check studies/batching-v1/agent.py
+          python3 -m ruff format --check studies/batching-v1/agent.py
+      - name: Test separate contract condition and full report-schema controls
+        run: |
+          python3 -E -s -B -m unittest discover -s tools -p test_batching_v2.py -v
+          node --test studies/batching-v2/test/*.test.mjs
+          python3 -m ruff check studies/batching-v2/agent.py
+          python3 -m ruff format --check studies/batching-v2/agent.py
   saved-evidence:
     name: Saved evidence (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -45,10 +57,10 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
       - name: Confirm preserved study bytes
@@ -59,6 +71,10 @@ jobs:
         run: python3 -E -s -B -m unittest discover -s study -p test_verifier.py -v
       - name: Audit saved question types and characterize frozen oracle gap
         run: python3 -E -s -B tools/audit_question_types.py
+      - name: Reproduce measured synthetic runs and published metrics unchanged
+        run: |
+          python3 -E -s -B tools/verify_batching_v1.py
+          python3 -E -s -B tools/verify_batching_v2.py
       - name: Confirm the checks left study bytes unchanged
         run: python3 tools/check_package.py
   live-preflight:
@@ -69,10 +85,10 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.12'
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
       - name: Build live environment from the checkout
@@ -86,4 +102,56 @@ jobs:
           done
       - name: Confirm archived study and UAT remain unchanged
         run: python3 tools/check_package.py
+  batching-preflight:
+    name: Batching study preflight (unpaid)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - name: Build the separate synthetic study
+        run: python3 tools/batching.py setup
+      - name: Exercise both real interfaces with scripted responses
+        run: python3 tools/batching.py preflight
+      - name: Recompute the unpaid results offline
+        run: |
+          for directory in reports/batching/preflight-*; do
+            if test -d "$directory"; then
+              python3 tools/batching.py verify "$directory"
+            fi
+          done
+      - name: Confirm historical study bytes remain unchanged
+        run: python3 tools/check_package.py
+  batching-v2-preflight:
+    name: Explicit-contract study preflight (unpaid)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - name: Build the separately versioned contract condition
+        run: python3 tools/batching_v2.py setup
+      - name: Exercise both interfaces, typed returns and full report validation
+        run: python3 tools/batching_v2.py preflight
+      - name: Recompute new unpaid evidence and preserve all measured v1 bytes
+        run: |
+          for directory in reports/batching-v2/preflight-*; do
+            if test -d "$directory"; then
+              python3 tools/batching_v2.py verify "$directory"
+            fi
+          done
+          python3 tools/verify_batching_v1.py
+          python3 tools/check_package.py
 
