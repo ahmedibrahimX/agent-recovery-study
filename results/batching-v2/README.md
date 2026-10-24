@@ -1,4 +1,4 @@
-# Conditional batching with explicit contracts: measured results
+# Batching with explicit tool contracts: measured results
 
 **In this run, ordinary tools usually favored 1- and 5-intent tasks. At 20 intents, Code Mode was faster in all nine pairs, with fewer model requests and lower calculated model cost, while making more public API calls.** Both arms passed all 27 state/history/full-report-schema outcomes. This supports a workload-dependent integration decision, not a universal crossover, general framework ranking or production-recovery claim.
 
@@ -78,9 +78,9 @@ The schema gate rejects shape defects; it does not supply the correct IDs, count
 
 ## Preserve the full experiment sequence
 
-[Batching v1](../batching-v1/README.md) remains visible and unchanged: its separate pilot and confirmation, mixed efficiencies, ambiguous return values, long repairs, premature ordinary stop and incomplete report-schema coverage are all retained. The [historical AppWorld study](../../README.md#historical-appworld-results) remains separate as well.
+[The initial batching experiment](../batching-v1/README.md) remains visible and unchanged: its separate pilot and confirmation, mixed efficiencies, ambiguous return values, long repairs, premature ordinary stop and incomplete report-schema coverage are all retained. The [historical AppWorld study](../../README.md#historical-appworld-results) remains separate as well.
 
-V2 jointly changes return schemas, wrapper/error documentation and report admission/grading, uses fresh fixtures and runs later against a hosted provider. The results do not isolate an output-schema effect. Different contracts also prevent raw v1/v2 or AppWorld pass rates from being compared as a single score. Do not pool the studies, replace failures, subtract repair time, or hide the earlier configuration.
+The follow-up jointly changes return schemas, wrapper/error documentation and report admission/grading, uses fresh fixtures and runs later against a hosted provider. The results do not isolate an output-schema effect. Different contracts also prevent pass rates from the initial batching experiment, the follow-up and the AppWorld study from being compared as a single score. Do not pool the studies, replace failures, subtract repair time, or hide the earlier configuration.
 
 There are only three unique fixture seeds and one trial per case/arm. Sizes share prefixes and histories are correlated. Service latency is synthetic and provider/host conditions are noisy. There are no significance, population reliability or immutable-provider-internals claims. The edit changes a note, not classification inputs: it tests stale-read field preservation, not replanning changed business facts. Withdrawal is between writes with no preemption; no real human approval/resume cycle, payment creation, process restart, durable execution or cross-service atomicity is evaluated. Independent engineer review remains pending.
 
@@ -92,7 +92,7 @@ Python 3.12+ and Node 22+ are sufficient; no model calls, API key, dependency in
 python3 -B tools/verify_batching_v2.py
 ```
 
-The command verifies archive hashes and every original file byte, then uses the frozen v2 verifier to reproduce source/plan identities, fixtures, verdicts, usage/cost, CSV and comparisons. It also recomputes `metrics.json` from all attempted outcomes. The two archives preserve all 2,151 original paid/unpaid run files, including requests/responses, programs/results, terminal attempts, snapshots, logs and budgets. Provider credentials and installed dependencies/build outputs are not included. Hashes establish integrity against this record, not independent provider provenance.
+The command verifies archive hashes and every original file byte, then uses the frozen verifier to reproduce source/plan identities, fixtures, verdicts, usage/cost, CSV and comparisons. It also recomputes `metrics.json` from all attempted outcomes. The two archives preserve all 2,151 original paid/unpaid run files, including requests/responses, programs/results, terminal attempts, snapshots, logs and budgets. Provider credentials and installed dependencies/build outputs are not included. Hashes establish integrity against this record, not independent provider provenance.
 
 For trace inspection after verification:
 

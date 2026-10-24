@@ -1,4 +1,4 @@
-# First measured conditional-batching configuration
+# Initial batching experiment
 
 The unchanged `batching-v1` source at commit `6b30ae1ace20158494cfb620846a49240d4f86be` produced these runs. The frozen primary checker validates state/history and selected structured claims; it does **not** enforce the entire closed report schema or grade free-form prose truthfulness. Later findings do not rewrite its saved verdicts.
 
@@ -12,7 +12,7 @@ Python 3.12+ and Node 22+ are sufficient. No API key, dependency installation, D
 python3 -B tools/verify_batching_v1.py
 ```
 
-This checks every archive and file hash, then uses the unchanged v1 verifier to reproduce plans, source identities, fixtures, verdicts, costs, CSV and grouped comparisons. It also recomputes [metrics.json](metrics.json). Hashes establish integrity relative to this record, not independent authentication of provider provenance or external preregistration.
+This checks every archive and file hash, then uses the unchanged verifier to reproduce plans, source identities, fixtures, verdicts, costs, CSV and grouped comparisons. It also recomputes [metrics.json](metrics.json). Hashes establish integrity relative to this record, not independent authentication of provider provenance or external preregistration.
 
 Each archive contains its original complete run directory, with relative file names and every file byte preserved: plan, environment, requests, responses, usage, programs, program results, journals, snapshots, reports, verdicts, aggregate files and local budget accounting. No dependencies or build files are included. The manifest identifies all 3,246 preserved run files. The source remains in `studies/batching-v1/` and `tools/batching.py`; even its original no-results status text is intentionally frozen because plans hash those bytes. This results record supplies the later status.
 
@@ -76,4 +76,4 @@ This configuration shows successful batching in some trajectories and substantia
 
 The workload is synthetic status reconciliation, not payment creation. There are three confirmation fixture seeds, one repetition per case, one provider/model and a shared host. Sizes share fixture prefixes and histories are correlated. Service delay is an injected 20 ms with concurrency four. Guards and notice gates are shared application engineering, not independent model judgment. There is no production distribution, real human approval/resume cycle, process-restart or cross-service atomicity evaluation.
 
-The separately [measured batching-v2 condition](../batching-v2/README.md) supplies explicit return contracts to both arms and validates the complete report schema online and offline. It changes documentation and grading/admission together, uses fresh paid seeds, and produces separate plans/results. It cannot isolate the causal effect of output schemas alone or retroactively repair these v1 outcomes.
+The separately measured [study of batching with explicit tool contracts](../batching-v2/README.md) supplies explicit return contracts to both arms and validates the complete report schema online and offline. It changes documentation and grading/admission together, uses fresh paid seeds, and produces separate plans/results. It cannot isolate the causal effect of output schemas alone or retroactively repair these initial outcomes.
