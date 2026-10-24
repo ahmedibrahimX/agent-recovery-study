@@ -1,5 +1,7 @@
 # Batching with explicit tool contracts: measured results
 
+**Comparing efficiency, correctness and stopping behavior under human edits and approval withdrawal.**
+
 **In this run, ordinary tools usually favored 1- and 5-intent tasks. At 20 intents, Code Mode was faster in all nine pairs, with fewer model requests and lower calculated model cost, while making more public API calls.** Both arms passed all 27 state/history/full-report-schema outcomes. This supports a workload-dependent integration decision, not a universal crossover, general framework ranking or production-recovery claim.
 
 ## Design and source identity
@@ -21,6 +23,16 @@ The source is frozen at commit `bdf4880945c945f4fbc78b0d2bf21ada19b73778`. The p
 | Upper limits | 128 model requests, 512 public calls, 128 code blocks, 8,192 output tokens, 1 MB request, 600 seconds per trial |
 
 Cases, source identities, model, limits, accounting rates and case/arm order were frozen before execution. No agent, prompt, policy, limit or grading changes were made during the run. The generator is public and the source freeze is local, not independent preregistration. The separately retained unpaid preflight has 18 scripted trials and is not capability evidence.
+
+## Simulated human intervention and handoff reporting
+
+Both this study and the initial batching experiment include simulated human-in-the-loop (HITL) conditions. The harness injects the edit or withdrawal; no person interacts with a live approval UI during the trial.
+
+- A human-note edit occurs after the initial list snapshot and before its stale result is delivered. The agent must preserve the newer note at every recorded state. Business classification inputs are unchanged.
+- Approval is withdrawn between committed status updates. The guard checks each mutation admission, and the model must stop requesting mutations after seeing the notice. Already-generated code or parallel calls are not preempted.
+- The terminal report identifies completed and remaining intents and status counts. That is handoff information, not a measured human approval/resume cycle or escalation-routing capability. No renewed-approval question is required by the batching contract.
+
+Selected original recovery contracts required an approval-question response after withdrawal. Their requirement and outcomes remain separate from this study's accurate `complete`/`stopped` reporting contract.
 
 ## Outcomes and efficiency
 

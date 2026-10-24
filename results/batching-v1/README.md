@@ -1,8 +1,12 @@
 # Initial batching experiment
 
+**Scaling dependent work under simulated human edits and approval withdrawal.**
+
 The unchanged `batching-v1` source at commit `6b30ae1ace20158494cfb620846a49240d4f86be` produced these runs. The frozen primary checker validates state/history and selected structured claims; it does **not** enforce the entire closed report schema or grade free-form prose truthfulness. Later findings do not rewrite its saved verdicts.
 
 The pilot has 18 paid trials: sizes 1/5/20 × clean/edit/withdraw × one seed (`20261023`) × one repetition × two arms. The separately planned confirmation has 54 paid trials with fresh seeds `93473`, `54781`, and `71839`, one repetition and both arms. All confirmation cases were retained. The default 162-trial matrix was not run. The 18-trial unpaid preflight is recorded separately and is not model-performance evidence.
+
+The edit and withdrawal conditions are simulated human-in-the-loop (HITL) interventions injected by the harness. They test preservation of a newer human note, stopping after approval withdrawal, and accurate reports of completed versus remaining work. Those reports provide handoff information. The batching contract does not require requesting renewed approval or evaluate a person replying, approving, routing an escalation or resuming execution. The original recovery study's approval-question requirements remain separate.
 
 ## Verify and inspect
 

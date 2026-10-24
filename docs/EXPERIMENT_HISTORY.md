@@ -10,13 +10,13 @@ Small tasks offered little batching, so these results did not measure Code Mode'
 
 ## Initial batching experiment
 
-The next study introduced synthetic status-reconciliation workloads of 1, 5 and 20 intents under clean, note-edit and between-write withdrawal histories. Its 18-trial pilot and separate 54-trial confirmation remain intact. Confirmation outcomes were 26/27 ordinary versus 27/27 Code, without a consistent Code efficiency advantage.
+The next study introduced synthetic status-reconciliation workloads of 1, 5 and 20 intents under clean, note-edit and between-write withdrawal histories. These are simulated human-in-the-loop conditions: the harness injects interventions, and the agent must preserve the newer note or stop and report completed versus remaining work. No live person approves resumption, and the batching contract does not require a renewed-approval question. Its 18-trial pilot and separate 54-trial confirmation remain intact. Confirmation outcomes were 26/27 ordinary versus 27/27 Code, without a consistent Code efficiency advantage.
 
 The traces exposed ambiguous raw tool returns versus execution wrappers, lengthy generated-code repairs, one ordinary premature stop, and a checker that validated selected report claims while accepting extra root fields. These were integration and measurement limitations worth investigating, not evidence that either interface is generally superior. The [original results, failures and limits](../results/batching-v1/README.md) remain public and unchanged.
 
 ## Batching with explicit tool contracts
 
-The follow-up supplied explicit success-return schemas and wrapper/error documentation to both arms, and enforced the full closed report schema at admission and offline grading. Fresh fixture seeds and one repetition produced 54 paid trials. Both arms passed 27/27. Ordinary tools were usually faster and slightly cheaper at sizes 1/5; Code was faster in all nine size-20 pairs, using fewer model requests at lower calculated cost while making more public API calls.
+The follow-up supplied explicit success-return schemas and wrapper/error documentation to both arms, and enforced the full closed report schema at admission and offline grading. The same clean, simulated human-edit and withdrawal histories remain part of the follow-up; batching efficiency and intervention handling are evaluated together. Fresh fixture seeds and one repetition produced 54 paid trials. Both arms passed 27/27. Ordinary tools were usually faster and slightly cheaper at sizes 1/5; Code was faster in all nine size-20 pairs, using fewer model requests at lower calculated cost while making more public API calls.
 
 The [results record](../results/batching-v2/README.md) retains every attempted outcome, denied mutation and reporting repair, including the adapter fallback quirk. Return documentation, report admission/grading, fixture seeds and execution conditions changed together. The observed differences cannot isolate output-schema causality or locate a universal crossover. Earlier outcomes were not rescored, replaced or pooled.
 

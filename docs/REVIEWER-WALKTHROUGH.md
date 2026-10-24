@@ -10,6 +10,10 @@ The [study of batching with explicit tool contracts](../results/batching-v2/READ
 
 ## 2. Challenge one scenario contract
 
+For the batching studies, inspect both simulated human interventions: preserve a newer note despite a stale read, and stop after withdrawal while accurately identifying completed versus remaining intents. These are harness-injected HITL conditions. Completed/remaining reports provide handoff information; the contract does not require requesting renewed approval or evaluate a real human reply, escalation routing or resumed execution. Challenge the intervention boundary and inspect actual model notice exposure alongside guard decisions.
+
+The original recovery study has a different terminal policy in selected withdrawal cases:
+
 Read `withdraw_inflight_write` in the [scenario document](SCENARIOS.md).
 
 ```text

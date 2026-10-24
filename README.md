@@ -2,7 +2,11 @@
 
 **How do ordinary structured tools and Code Mode trade correctness, model traffic, latency and cost as workloads grow or human intervention changes the task?**
 
-We compare **ordinary structured tools versus Cloudflare Code Mode** under shared application safeguards. The historical AppWorld study examines small recovery tasks; a measured synthetic reconciliation study adds larger conditional workloads. Each comparison holds the LangChain loop, model, task policy and safeguards fixed while changing the execution interface and its associated instructions. The studies have different tasks and terminal contracts; their pass rates are never pooled.
+We compare **ordinary structured tools versus Cloudflare Code Mode** under shared application safeguards. The historical AppWorld study examines small recovery tasks; a measured synthetic reconciliation study adds larger conditional workloads.
+
+Both batching studies include simulated human-in-the-loop (HITL) conditions: the harness changes a human note or withdraws approval during execution. They measure field preservation, stopping and reports of completed versus remaining work alongside efficiency.
+
+Each comparison holds the LangChain loop, model, task policy and safeguards fixed while changing the execution interface and its associated instructions. The studies have different tasks and terminal contracts; their pass rates are never pooled.
 
 **Latest measured finding:** with explicit return contracts, ordinary tools were usually faster and slightly cheaper at 1 and 5 intents. At 20 intents, Code Mode was faster in all nine paired cases and used fewer model requests at 58.2% lower calculated model cost, while making more public API calls. Both arms passed 27/27 state/history/full-report-schema outcomes. This is a workload-dependent result from a bounded synthetic study, not a universal crossover, production-safety guarantee or general framework ranking.
 
@@ -13,8 +17,8 @@ We compare **ordinary structured tools versus Cloudflare Code Mode** under share
 | Investigation | Question and finding | What it led to |
 | --- | --- | --- |
 | [Recovery on small AppWorld tasks](#recovery-on-small-appworld-tasks-results) | Under human edits and approval withdrawal, both interfaces preserved checked external state with shared safeguards; terminal responses could still violate the chosen contract. Small tasks offered little batching. | Separate agent behavior from guard protection, and test larger dependent workloads. |
-| [Initial batching experiment](results/batching-v1/README.md) | Larger read/classify/update workloads exposed ambiguous return values, long repairs and incomplete report validation. Confirmation did not show a consistent Code efficiency advantage. | Make tool-return contracts explicit for both arms and enforce the complete report schema. |
-| [Batching with explicit tool contracts](results/batching-v2/README.md) | Both arms passed all 27 cases. Ordinary tools usually favored smaller tasks; Code reduced model requests, time and calculated cost at 20 intents while making more API calls. | Treat workload size, tool contracts and execution granularity as integration choices to validate on the intended task distribution. |
+| [Initial batching experiment](results/batching-v1/README.md) | Larger read/classify/update workloads under human edits and withdrawal exposed ambiguous return values, long repairs and incomplete report validation. Confirmation did not show a consistent Code efficiency advantage. | Make tool-return contracts explicit for both arms and enforce the complete report schema. |
+| [Batching with explicit tool contracts](results/batching-v2/README.md) | Both arms passed all 27 cases, including note preservation and correct partial stopping. Ordinary tools usually favored smaller tasks; Code reduced model requests, time and calculated cost at 20 intents while making more API calls. | Treat workload size, tool contracts and execution granularity as integration choices to validate on the intended task distribution. |
 
 The initial batching experiment exposed ambiguous tool returns and incomplete report validation. A follow-up supplied explicit return contracts and enforced the full report schema. Both measured conditions remain available; their differences do not isolate the effect of return contracts alone. The [detailed experiment history](docs/EXPERIMENT_HISTORY.md) also retains the earliest adapter-affected recovery comparison, its correction and earlier exploratory diagnostics. Technical identifiers remain in source/evidence paths for reproducibility.
 
@@ -33,7 +37,17 @@ Start with [one paired batching trajectory](results/batching-v2/README.md#inspec
 
 ## Batching with explicit tool contracts
 
+**Comparing efficiency, correctness and stopping behavior under human edits and approval withdrawal.**
+
 The study of batching with explicit tool contracts reconciles 1, 5 or 20 synthetic payment-intent statuses under clean, stale-list human-note-edit and between-write approval-withdrawal histories. No money moves. Three fresh fixture seeds, one repetition and two arms produce 54 trials. Both arms use the same model, LangChain loop, underlying APIs, policy and service limits; ordinary tools may issue parallel calls. Every attempted trial is retained; all pairs passed and no failed counterpart is excluded from timing comparisons.
+
+| Condition | Required behavior |
+| --- | --- |
+| Clean execution | Reconcile every assigned intent and report the actual updates. |
+| Simulated human edit | Preserve the newer human note after a stale list snapshot; classification inputs do not change. |
+| Approval withdrawal | The guard rejects new admissions after withdrawal; the agent stops requesting mutations once it sees the notice and accurately reports updated and remaining intents. |
+
+Completed/remaining IDs and counts provide handoff information. The batching contract requires accurate completion or stopping, without a renewed-approval question. It does not evaluate a real person replying, approving a resumption, escalation routing or resumed execution. Some original recovery contracts separately required an approval-question response; that requirement remains part of their unchanged scoring.
 
 | Intents | Median agent seconds, ordinary / Code | Code faster in paired agent and full elapsed time | All-attempt calculated cost, ordinary / Code |
 | --- | ---: | ---: | ---: |
@@ -62,7 +76,7 @@ The [full results record](results/batching-v2/README.md) includes size/history b
 
 ## Initial batching experiment
 
-The initial batching experiment remains part of the public record: [18 pilot and 54 separate confirmation trials, unchanged](results/batching-v1/README.md). Confirmation outcomes were 26/27 ordinary versus 27/27 Code, with calculated costs $3.135602 versus $4.610532 and no consistent Code efficiency advantage. It exposed ambiguous return values, long program repairs, one ordinary premature stop and incomplete report-schema coverage. The pilot's stronger large-workload advantage remains separate rather than being pooled or selected as the headline.
+The initial batching experiment also combines larger dependent workloads with simulated human-note edits, approval withdrawal and completed/remaining-work reporting. It remains part of the public record: [18 pilot and 54 separate confirmation trials, unchanged](results/batching-v1/README.md). Confirmation outcomes were 26/27 ordinary versus 27/27 Code, with calculated costs $3.135602 versus $4.610532 and no consistent Code efficiency advantage. It exposed ambiguous return values, long program repairs, one ordinary premature stop and incomplete report-schema coverage. The pilot's stronger large-workload advantage remains separate rather than being pooled or selected as the headline.
 
 The follow-up adds explicit return documentation/schemas and full report admission/grading, uses fresh fixtures and runs later. These combined changes do not isolate the effect of output schemas. The initial experiment's passes, failures, costs and repairs have not been rescored or replaced. Historical AppWorld outcomes below also retain their own tasks and terminal contracts.
 
