@@ -75,7 +75,7 @@ class LiveControls(unittest.TestCase):
 
     def test_fresh_recheck_detects_an_altered_verdict(self):
         verifier = live.load_module(
-            "live_test_saved_verifier", live.ROOT / "study/verify.py"
+            "live_test_saved_verifier", live.ROOT / "studies/recovery/verify.py"
         )
         store = verifier.Store()
         try:

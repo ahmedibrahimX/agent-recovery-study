@@ -1,12 +1,12 @@
 # Find the implementation and evidence
 
-The study has two layers: documentation under `docs/` and executable code/evidence under `study/`. Its experimental source/evidence is stored encrypted with content-addressed blobs. The source is inspectable locally through the existing reader.
+The study has two layers: documentation under `docs/` and executable code/evidence under `studies/recovery/`. Its experimental source/evidence is stored encrypted with content-addressed blobs. The source is inspectable locally through the existing reader.
 
 From the repository root:
 
 ```sh
-python3 -E -s -B study/evidence.py
-python3 -E -s -B study/evidence.py experiments/live-v7/langchain_agent.py
+python3 -E -s -B studies/recovery/evidence.py
+python3 -E -s -B studies/recovery/evidence.py experiments/live-v7/langchain_agent.py
 ```
 
 The first command lists protected logical paths. The second prints the exact agent implementation locally. Do not paste decrypted task-derived code, prompts, inputs, or snapshots into public issues or screenshots.

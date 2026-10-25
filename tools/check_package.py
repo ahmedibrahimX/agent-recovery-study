@@ -13,7 +13,7 @@ def check():
     if inventory["format"] != 1:
         raise RuntimeError("unsupported inventory version")
     expected = inventory["files"]
-    study = ROOT / "study"
+    study = ROOT / "studies" / "recovery"
     actual = set()
     for path in study.rglob("*"):
         if path.is_symlink():

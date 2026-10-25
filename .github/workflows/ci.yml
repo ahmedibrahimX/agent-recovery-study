@@ -66,9 +66,9 @@ jobs:
       - name: Confirm preserved study bytes
         run: python3 tools/check_package.py
       - name: Reproduce saved verdicts (expected agent failures included)
-        run: python3 -E -s -B study/verify.py
+        run: python3 -E -s -B studies/recovery/verify.py
       - name: Run original UAT negative controls
-        run: python3 -E -s -B -m unittest discover -s study -p test_verifier.py -v
+        run: python3 -E -s -B -m unittest discover -s studies/recovery -p test_verifier.py -v
       - name: Audit saved question types and characterize frozen oracle gap
         run: python3 -E -s -B tools/audit_question_types.py
       - name: Reproduce measured synthetic runs and published metrics unchanged

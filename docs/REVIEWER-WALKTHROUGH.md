@@ -34,11 +34,11 @@ The exact sources are available locally through the evidence reader. [Source gui
 
 Run the saved-result commands in the root README. Keep the adapter-affected and corrected recovery comparisons, the initial batching experiment, and batching with explicit tool contracts separate. The [technical identity map](EXPERIMENT_HISTORY.md#technical-identity-map) connects those names to archive identifiers. Confirm expected failures remain failures and all five original negative controls pass. A useful negative control detects a transient lost edit even when the final state is unchanged. `python3 -B tools/verify_batching_v1.py` and `python3 -B tools/verify_batching_v2.py` separately check each version's measured run bytes, source identities, verdicts and published metrics.
 
-The original verification report is [study/verification-author.json](../study/verification-author.json). A fresh local report is an author-side reproduction, not outside certification. Do not describe the saved model calls as newly rerun.
+The original verification report is [studies/recovery/verification-author.json](../studies/recovery/verification-author.json). A fresh local report is an author-side reproduction, not outside certification. Do not describe the saved model calls as newly rerun.
 
 ## 5. Identify what the score misses
 
 The supplementary prose audit found inaccuracies in both arms despite preserved external state. This demonstrates why a structured/state pass does not imply a truthful or useful final explanation. See the [interpretation](CASE_STUDY.md) and [claims map](CLAIMS.md).
 
-Return one criticism of the scenario or baseline, one outcome you reproduced, and one architecture conclusion you found useful—or explain why it was not useful. Include runtime versions, local changes, and the evidence manifest digest. The original [review template](../study/reviews/template.json) can capture this. No endorsement is requested or presumed.
+Return one criticism of the scenario or baseline, one outcome you reproduced, and one architecture conclusion you found useful—or explain why it was not useful. Include runtime versions, local changes, and the evidence manifest digest. The original [review template](../studies/recovery/reviews/template.json) can capture this. No endorsement is requested or presumed.
 

@@ -86,7 +86,9 @@ def replace_once(source: str, old: str, new: str) -> str:
 
 def prepare() -> None:
     """Extract authenticated source only into an ignored local working directory."""
-    verifier = load_module("live_saved_verifier", ROOT / "study" / "verify.py")
+    verifier = load_module(
+        "live_saved_verifier", ROOT / "studies" / "recovery" / "verify.py"
+    )
     package = load_module("live_package_check", ROOT / "tools" / "check_package.py")
     package.check()
     if (RUNTIME / "prepared.json").exists():
@@ -356,7 +358,9 @@ def run(mode: str, budget: float | None, quick: bool) -> None:
 def recheck(folder: Path) -> None:
     folder = folder.resolve()
     summary = json.loads((folder / "summary.json").read_text())
-    verifier = load_module("fresh_saved_verifier", ROOT / "study" / "verify.py")
+    verifier = load_module(
+        "fresh_saved_verifier", ROOT / "studies" / "recovery" / "verify.py"
+    )
     store = verifier.Store()
     try:
         published = {case["id"]: case for case in store.json(f"{BASE}/heldout.json")}

@@ -1,6 +1,6 @@
 # Licensing and third-party material
 
-The MIT license applies to original project code and editorial documentation. Separately licensed third-party and derived material is not relicensed by that grant. Review the preserved [AppWorld license](study/licenses/AppWorld-LICENSE.txt), and original source/license records before redistribution.
+The MIT license applies to original project code and editorial documentation. Separately licensed third-party and derived material is not relicensed by that grant. Review the preserved [AppWorld license](studies/recovery/licenses/AppWorld-LICENSE.txt), and original source/license records before redistribution.
 
 AppWorld is by Stony Brook NLP and collaborators; its [paper](https://arxiv.org/abs/2407.18901) describes the underlying environment. The exact upstream source commit used by this study is `42b5bcf3cd334fee33f0c37c02070a9f5807add5`.
 

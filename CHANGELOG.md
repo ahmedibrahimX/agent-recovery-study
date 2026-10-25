@@ -1,6 +1,12 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 - 2026-10-25
+
+- Conditional batching comparisons across 1, 5 and 20 intents, with simulated human edits and approval withdrawal.
+- Preserved initial batching pilot and confirmation runs, plus a separate measured follow-up with explicit return contracts and complete report-schema validation.
+- Offline reproduction of saved batching verdicts and metrics, live runners, and a trace-level case walkthrough.
+- Unified experiment layout under `studies/`: the original `study/` moves to `studies/recovery/`, with every recovery file, UAT and provenance hash unchanged.
+- Clearer recovery interpretation, gateway-rejection counts and withdrawal case walkthrough.
 
 - Clean-checkout live setup using included experimental source, pinned dependencies, and a rebuilt simulator image.
 - Unpaid native-scenario and scripted-agent preflight checks; new paid trials with an explicit per-run budget and the user's API key.
