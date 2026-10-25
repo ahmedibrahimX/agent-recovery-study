@@ -1,18 +1,18 @@
 # Offline verification versus a fresh experiment
 
-`python3 -E -s -B study/verify.py` needs Python 3.12+ (SQLite deserialize enabled), Node 22+, no third-party packages, and the included study files. Tested on Python 3.12.12, SQLite as provided by that interpreter, Node 23.3.0/macOS. It processes one trial at a time and removes temporary plaintext afterwards. Allow 200 MB free space. The artifact itself occupies approximately 128 MB logical / somewhat more allocated filesystem space.
+`python3 -E -s -B studies/recovery/verify.py` needs Python 3.12+ (SQLite deserialize enabled), Node 22+, no third-party packages, and the included study files. Tested on Python 3.12.12, SQLite as provided by that interpreter, Node 23.3.0/macOS. It processes one trial at a time and removes temporary plaintext afterwards. Allow 200 MB free space. The artifact itself occupies approximately 128 MB logical / somewhat more allocated filesystem space.
 
 The command authenticates all encrypted blobs and manifest, compares original frozen-file hashes, checks reserved inputs and paired initial context equality after opaque-token normalization, imports the frozen checker, and compares every recalculated verdict with saved verdicts and summaries. It recomputes model cost from saved response token usage at pinned prices and verifies ledger deltas. Timing is recomputed descriptively from saved clocks; speed is **not remeasured live**. The exact reserved case membership is validated. These are author-generated records, not externally notarized provenance.
 
-`python3 -E -s -B -m unittest discover -s study -p test_verifier.py -v` adds five controls: ciphertext alteration fails; traversal paths fail; an intermediate lost-label edit is detected despite unchanged final state; a wrongly accepted guard is detected; the known agent failure remains a failure.
+`python3 -E -s -B -m unittest discover -s studies/recovery -p test_verifier.py -v` adds five controls: ciphertext alteration fails; traversal paths fail; an intermediate lost-label edit is detected despite unchanged final state; a wrongly accepted guard is detected; the known agent failure remains a failure.
 
 ## Inspect original code and traces locally
 
 ```sh
-python3 -E -s -B study/evidence.py
-python3 -E -s -B study/evidence.py experiments/live-v7/checker.py
-python3 -E -s -B study/evidence.py experiments/live-v6/service.py
-python3 -E -s -B study/evidence.py experiments/live-v7 --extract-to /tmp/recovery-v7-source
+python3 -E -s -B studies/recovery/evidence.py
+python3 -E -s -B studies/recovery/evidence.py experiments/live-v7/checker.py
+python3 -E -s -B studies/recovery/evidence.py experiments/live-v6/service.py
+python3 -E -s -B studies/recovery/evidence.py experiments/live-v7 --extract-to /tmp/recovery-v7-source
 ```
 
 The listing includes all original logical lab paths. Inspect exact baseline, prompts, freeze/reservation records and raw requests locally. Never upload the decrypted content to public pages, issues, screenshots or source hosting. Temporary extraction persists only if you request `--extract-to`; delete that directory when finished. `verify.py` handles its own temporary cleanup.

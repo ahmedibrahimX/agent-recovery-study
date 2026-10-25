@@ -2,7 +2,7 @@
 
 The repository includes the documentation, offline verifier, original UAT controls, frozen experimental source, and saved evidence needed to inspect the study and reproduce its saved outcomes. No separate private checkout or evidence service is required.
 
-Public documentation lives under `docs/`. Executable verification code and evidence live under `study/`. The exact agent implementations, experiment definitions, prompts, native snapshots, and requests are included in the encrypted evidence store and can be inspected locally with `study/evidence.py`.
+Public documentation lives under `docs/`. Executable verification code and evidence live under `studies/recovery/`. The exact agent implementations, experiment definitions, prompts, native snapshots, and requests are included in the encrypted evidence store and can be inspected locally with `studies/recovery/evidence.py`.
 
 `provenance/study-files.json` records hashes of the frozen study code and evidence. Run `python3 tools/check_package.py` to check these files. Documentation can evolve without rewriting the frozen implementation or changing the historical outcomes.
 
@@ -16,4 +16,8 @@ The inventory establishes consistency with the repository's records. It is not a
 
 Source, manifests, lockfiles, tests, documentation, and required encrypted evidence belong in version control. Installed dependencies, build products, caches, real credentials, and local plaintext extractions do not. The root `.gitignore` covers these generated/private paths.
 
-Saved-result verification is self-contained once Python and Node are installed. Fresh live execution additionally requires pinned dependencies, protected AppWorld assets, simulator rebuilds, and provider access; a clean live rebuild remains unvalidated. See [reproduction](REPRODUCING.md) for the exact boundary.
+Saved-result verification is self-contained once Python and Node are installed. Fresh live execution additionally requires pinned dependencies, protected AppWorld assets, simulator rebuilds, and provider access. GitHub CI rebuilds the live environment and exercises unpaid preflight scenarios; paid replications require the user's API key and an explicit budget. See [reproduction](REPRODUCING.md) for the exact boundary.
+
+## Study layout
+
+All experiment implementations are grouped under `studies/`: `recovery/`, `batching-v1/` and `batching-v2/`. In v0.2.0, the original `study/` directory moved to `studies/recovery/` without changing any file contents. The paths in `provenance/study-files.json` remain relative to that preserved study root, so the inventory and evidence identity are unchanged. Frozen records retain their original paths; current reproduction commands use the new location.

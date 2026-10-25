@@ -88,8 +88,8 @@ From the repository root:
 
 ```sh
 python3 tools/check_package.py
-python3 -E -s -B study/verify.py
-python3 -E -s -B -m unittest discover -s study -p test_verifier.py -v
+python3 -E -s -B studies/recovery/verify.py
+python3 -E -s -B -m unittest discover -s studies/recovery -p test_verifier.py -v
 python3 -B tools/verify_batching_v1.py
 python3 -B tools/verify_batching_v2.py
 ```
@@ -158,7 +158,7 @@ The corrected recovery comparison used two previously unused worlds in familiar 
 | Calculated model API cost (12 trials per arm) | $0.782038 | $0.816218 |
 | Median agent time | 12.795 s | 15.549 s |
 
-Zero invalid effects describes the guarded system's observed outcomes; it does not mean the agents never requested a rejected action. The aggregate [rejection counts](study/verification-author.json) do not establish that either model knowingly ignored withdrawal. That requires inspecting the rejection reason and whether withdrawal had reached the model before the request. See the [shared safeguard boundary](docs/ARCHITECTURE.md).
+Zero invalid effects describes the guarded system's observed outcomes; it does not mean the agents never requested a rejected action. The aggregate [rejection counts](studies/recovery/verification-author.json) do not establish that either model knowingly ignored withdrawal. That requires inspecting the rejection reason and whether withdrawal had reached the model before the request. See the [shared safeguard boundary](docs/ARCHITECTURE.md).
 
 Model API costs are totals across each arm's 12 trials, calculated from saved token usage at the experiment's recorded prices. They exclude infrastructure costs and are not current price quotes.
 
@@ -175,27 +175,21 @@ The earlier adapter-affected recovery comparison has 48 trials and 23/24 primary
 ```text
 README.md                 question, results, quickstart, interpretation
 docs/                     reviewer guide, reproduction, packaging, release status
-study/                    verifier, UAT controls, encrypted source and evidence
-  verify.py               unchanged offline verifier
-  test_verifier.py        unchanged negative-control suite
-  tools/store.mjs         unchanged local encrypted evidence reader
-  evidence/               encrypted source, requests, histories, and native snapshots
-provenance/               checksums documenting frozen study code and evidence
-tools/check_package.py    checks packaged study bytes against the provenance record
-tools/live.py             setup, unpaid preflight, new paid runs, fresh-result checks
-tools/batching.py         frozen first synthetic study runner and verifier
-tools/batching_v2.py      explicit-contract follow-up runner and verifier
-tools/verify_batching_v1.py  reproduce earlier synthetic evidence and metrics
-tools/verify_batching_v2.py  reproduce latest synthetic evidence and metrics
-studies/batching-v1/      unchanged first measured synthetic configuration
-studies/batching-v2/      separate return-contract and report-schema condition
+studies/
+  recovery/               unchanged recovery verifier, UAT and encrypted evidence
+  batching-v1/            unchanged first measured synthetic configuration
+  batching-v2/            separate return-contract and report-schema condition
+provenance/               checksums documenting frozen recovery code and evidence
 results/batching-v1/      preserved earlier runs, hashes, metrics and findings
 results/batching-v2/      preserved latest runs, hashes, metrics and findings
+tools/                    packaging checks, live runners and batching verifiers
 live/                     portable orchestration and simulator build definition
 .github/                  CI and contribution templates
 ```
 
-The exact experimental agent implementations, prompts, environment definitions, scenarios, and checkers are preserved inside the evidence store. Use `python3 -E -s -B study/evidence.py` to list logical paths locally. See the [source guide](docs/SOURCE-GUIDE.md). Encryption preserves protected-data distribution boundaries; the public passphrase is packaging, not secrecy.
+All experiment implementations live under `studies/`. The recovery study moved from `study/` to `studies/recovery/` in v0.2.0; its files and provenance hashes are unchanged.
+
+The exact recovery agent implementations, prompts, environment definitions, scenarios, and checkers are preserved inside the evidence store. Use `python3 -E -s -B studies/recovery/evidence.py` to list logical paths locally. See the [source guide](docs/SOURCE-GUIDE.md). Encryption preserves protected-data distribution boundaries; the public passphrase is packaging, not secrecy.
 
 This repository contains the study, verification/testing code, and live-run setup. Installed dependencies and generated build outputs are excluded. Live dependencies, extracted source, and fresh outputs stay in ignored local directories; see the [live-run guide](docs/LIVE-RUNS.md).
 

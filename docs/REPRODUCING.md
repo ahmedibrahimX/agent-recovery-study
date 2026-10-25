@@ -9,8 +9,8 @@
 From the repository root:
 
 ```sh
-python3 -E -s -B study/verify.py
-python3 -E -s -B -m unittest discover -s study -p test_verifier.py -v
+python3 -E -s -B studies/recovery/verify.py
+python3 -E -s -B -m unittest discover -s studies/recovery -p test_verifier.py -v
 ```
 
 Python 3.12+ must support SQLite `Connection.deserialize`; Node must be 22+. `-E` prevents Python environment variables such as `PYTHONOPTIMIZE` from disabling assertions, `-s` disables user site packages, and `-B` avoids bytecode writes into the preserved artifact. These flags do not sandbox Python.
@@ -21,10 +21,10 @@ To save a new local JSON result, choose a new filename under the ignored `report
 
 ```sh
 mkdir -p reports
-python3 -E -s -B study/verify.py --output reports/verification.json
+python3 -E -s -B studies/recovery/verify.py --output reports/verification.json
 ```
 
-The original verifier's `--output` can overwrite an existing file. Avoid paths inside `study/`; the package consistency check detects changed study bytes.
+The original verifier's `--output` can overwrite an existing file. Avoid paths inside `studies/recovery/`; the package consistency check detects changed study bytes.
 
 For a limited study, use `--study v6` or `--study v7`. The separate negative-control command always runs the original full control suite, including its v7 fixtures.
 

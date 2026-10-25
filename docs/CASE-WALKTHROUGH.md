@@ -54,12 +54,12 @@ The logical case label below is an authored scenario label, not a native AppWorl
 
 ```sh
 CASE='runs/live-v7-heldout-2026-10-22T21-44-23.043Z/live-v7-heldout-phone-withdraw_inflight_write-0'
-python3 -E -s -B study/evidence.py "$CASE/langchain_code/verdict.json"
-python3 -E -s -B study/evidence.py "$CASE/langchain_code/submission.json"
-python3 -E -s -B study/evidence.py "$CASE/langchain_code/history.json"
-python3 -E -s -B study/evidence.py "$CASE/langchain_native/verdict.json"
-python3 -E -s -B study/evidence.py "$CASE/langchain_native/submission.json"
-python3 -E -s -B study/evidence.py "$CASE/langchain_native/history.json"
+python3 -E -s -B studies/recovery/evidence.py "$CASE/langchain_code/verdict.json"
+python3 -E -s -B studies/recovery/evidence.py "$CASE/langchain_code/submission.json"
+python3 -E -s -B studies/recovery/evidence.py "$CASE/langchain_code/history.json"
+python3 -E -s -B studies/recovery/evidence.py "$CASE/langchain_native/verdict.json"
+python3 -E -s -B studies/recovery/evidence.py "$CASE/langchain_native/submission.json"
+python3 -E -s -B studies/recovery/evidence.py "$CASE/langchain_native/history.json"
 ```
 
 For each arm, `model-1-request.json` is the second model request and can be inspected locally to verify exposure to the withdrawal notice. The recorded `history.json` links dispatch and commit through the same call identifier and names the intermediate/final database snapshots. The existing verifier checks those native snapshots, allowed changes, and saved verdicts.
@@ -67,7 +67,7 @@ For each arm, `model-1-request.json` is the second model request and can be insp
 These commands may display protected task-derived material locally. Do not paste decrypted output into public issues or documentation. To reproduce all state/history checks without manual extraction, run the unchanged verifier:
 
 ```sh
-python3 -E -s -B study/verify.py --study v7
+python3 -E -s -B studies/recovery/verify.py --study v7
 ```
 
 The [claims map](CLAIMS.md) gives the broader evidence boundaries; the [scenario contracts](SCENARIOS.md) explain the withdrawal policy and other histories.

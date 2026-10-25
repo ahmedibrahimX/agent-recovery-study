@@ -10,7 +10,7 @@
 4. Inspect the [paired batching trajectory](../results/batching-v2/README.md#inspect-one-paired-batching-trajectory), its ordinary parallel-call baseline and retained reporting repairs, plus one corrected recovery inflight case and concurrent edit. Evaluate explanations as well as structured state/protocol outcomes. Challenge whether model-chosen grouping, synthetic delay or task mix limits the efficiency conclusion.
 5. Identify one way the comparison or checker could mislead an engineer, and one architecture decision it helps—or explain why it is not useful.
 
-Record the evidence manifest digest, OS/runtime versions, commands/output hashes, local changes, unexpected findings, and unresolved disagreements. The [review template](../study/reviews/template.json) is available for structured reports. For the protected historical archive, keep source/data encrypted in public discussion and use logical paths. Public synthetic sources and results are directly inspectable.
+Record the evidence manifest digest, OS/runtime versions, commands/output hashes, local changes, unexpected findings, and unresolved disagreements. The [review template](../studies/recovery/reviews/template.json) is available for structured reports. For the protected historical archive, keep source/data encrypted in public discussion and use logical paths. Public synthetic sources and results are directly inspectable.
 
 The unpaid verification checks saved evidence. It does not rerun stochastic model behavior. A fresh independent live run is a separate undertaking with additional setup and cost. Preserve unfavorable findings and implementation faults; a review should not become a search for cleaner headline scores.
 

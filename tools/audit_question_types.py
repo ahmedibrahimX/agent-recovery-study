@@ -25,7 +25,7 @@ def load_module(name: str, source: Path) -> ModuleType:
 
 
 def audit():
-    verifier = load_module("frozen_verifier", ROOT / "study/verify.py")
+    verifier = load_module("frozen_verifier", ROOT / "studies/recovery/verify.py")
     store = verifier.Store()
     studies = verifier.STUDIES
     try:
