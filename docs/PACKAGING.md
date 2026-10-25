@@ -16,7 +16,7 @@ The inventory establishes consistency with the repository's records. It is not a
 
 Source, manifests, lockfiles, tests, documentation, and required encrypted evidence belong in version control. Installed dependencies, build products, caches, real credentials, and local plaintext extractions do not. The root `.gitignore` covers these generated/private paths.
 
-Saved-result verification is self-contained once Python and Node are installed. Fresh live execution additionally requires pinned dependencies, protected AppWorld assets, simulator rebuilds, and provider access; a clean live rebuild remains unvalidated. See [reproduction](REPRODUCING.md) for the exact boundary.
+Saved-result verification is self-contained once Python and Node are installed. Fresh live execution additionally requires pinned dependencies, protected AppWorld assets, simulator rebuilds, and provider access. GitHub CI rebuilds the live environment and exercises unpaid preflight scenarios; paid replications require the user's API key and an explicit budget. See [reproduction](REPRODUCING.md) for the exact boundary.
 
 ## Study layout
 
